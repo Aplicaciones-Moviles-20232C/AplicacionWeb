@@ -7,3 +7,10 @@ export const GetCharacters =()=>{
         console.log( data ); // HTML content of the jQuery.ajax page
       });
 }
+
+export const GetCharacterById = (id) =>{
+    $.get( `${baseUrl}character/${id}`, function( data ) {
+        console.log( typeof data );
+        console.log( data );
+      });
+}
