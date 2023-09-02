@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar.js";
 import { Card } from "../components/Card.js";
 
 import { hpCharacters } from "./jsonHP.js";
+import { GetCharacters } from "../services/apiCall.js";
 
 export const IndexRender = () => {
     let root = document.getElementById("root");
@@ -15,5 +16,7 @@ export const IndexRender = () => {
             root.innerHTML += Card(personaje.name,personaje.image,personaje.house,personaje.id);
         }
     });
+
+    GetCharacters();
 }
 
