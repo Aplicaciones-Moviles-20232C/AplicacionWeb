@@ -6,6 +6,16 @@
   body {
     padding: 80px 0px 0;
   }
+  .img-casas{
+    width: 9%;
+  height: 9%;
+  }
+  h2{
+    font-family: Barlow Semi Condensed;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+}
   
   .header {
     background-color: #FF0000;
