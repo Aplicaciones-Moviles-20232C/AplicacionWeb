@@ -15,6 +15,9 @@ export const Navbar = ()=> {
         <li class="nav-menu-item">
           <a href="#" class="nav-menu-link nav-link">Historial</a>
         </li>
+        <li class="nav-menu-item">
+          <a href="#" class="nav-menu-link nav-link">Mas informacion</a>
+        </li>
       </ul>
     </nav>
   </header>`)
