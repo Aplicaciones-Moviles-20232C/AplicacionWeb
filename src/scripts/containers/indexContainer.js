@@ -1,6 +1,7 @@
 import { Navbar } from "../components/Navbar.js";
 import { Card } from "../components/Card.js";
 import { hpCharacters } from "./jsonHP.js";
+import { GetCharacters, GetCharacterById } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 
 export const IndexRender = () => {
@@ -19,3 +20,5 @@ export const IndexRender = () => {
     }
   });
 };
+
+
