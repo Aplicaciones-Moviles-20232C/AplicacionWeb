@@ -1,7 +1,10 @@
-export const Card = (name,img,text,id) =>{
-    return `<div>
-                <h1> ${name}</h1>
-                <img src =${img} />
-                <h1> ${text}</h1>
-            </div>`
+export const Card = (nombre,imagen,escuela,id) =>{
+    return `<article class="card">
+                <img class="card-img" src="${imagen}" />
+                <div class="overlay">
+                    <div class = "div-nombre">
+                        <h1>${nombre}</h1>
+                    </div>
+                </div>
+            </article>`
 }
