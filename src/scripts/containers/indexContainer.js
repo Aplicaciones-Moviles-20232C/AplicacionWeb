@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar.js";
 import { Card } from "../components/Card.js";
 
 import { hpCharacters } from "./jsonHP.js";
+import { GetCharacters, GetCharacterById } from "../services/apiCall.js";
 
 export const IndexRender = () => {
     let root = document.getElementById("root");
