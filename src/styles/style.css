@@ -5,27 +5,12 @@
 
 
 /* Estilos para celular */
-#btnCustom {
-    background-color: red;
-}
 
-.navbar{
-    width: 100vw;
-    height: 5vh;
-    background-color: aquamarine;
-}
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     /* Estilos para tablets */
-    .navbar{
-        background-color: rgb(255, 0, 0);
-    }
-
 }
 
 @media screen and (min-width: 992px) {
     /* Estilos para pantallas grandes, como computadoras */
-    .navbar{
-        background-color: rgb(34, 0, 255);
-    }
 }
