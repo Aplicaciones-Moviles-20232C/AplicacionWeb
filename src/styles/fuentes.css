@@ -25,13 +25,13 @@ h3{
 @media screen and (max-width: 767px) {
     /* Estilos para dispositivos móviles, como celulares */
     h1{
-        font-size: 35px;
+        font-size: 30px;
     }
     h2{
-        font-size: 25px;
+        font-size: 20px;
     }
     h3{
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
