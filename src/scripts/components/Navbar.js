@@ -2,7 +2,7 @@ export const Navbar = ()=> {
     return(`<header class="header">
     <nav class="nav">
     <img src="/src/img/casas.png" alt="hogwarts" class="img-casas">
-    <a href="#" class="logo nav-link" >WikiPotter</a>
+    <a href="#" class="logo nav-link" ></a>
       <button class="nav-toggle" aria-label="Abrir menú">
         <i class="fas fa-bars"></i>
       </button>
