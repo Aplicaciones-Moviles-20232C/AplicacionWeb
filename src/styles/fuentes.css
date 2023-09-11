@@ -19,19 +19,19 @@ h3{
     font-size: 18px;
     font-style: normal;
     line-height: 140.5%;
-  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (max-width: 767px) {
     /* Estilos para dispositivos móviles, como celulares */
     h1{
-        font-size: 35px;
+        font-size: 30px;
     }
     h2{
-        font-size: 25px;
+        font-size: 20px;
     }
     h3{
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
