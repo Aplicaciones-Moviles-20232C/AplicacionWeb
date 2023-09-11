@@ -8,16 +8,44 @@ export const DetailRender = () => {
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
   EfectoNavbar();
-  let detalle = document.getElementById("details");
+  
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
-  GetCharacterById(characterId, function(characterData) {
-    
-    const nombre = characterData.name; 
-    const edad = characterData.age;   
-  
-    detalle.innerHTML += Detail(nombre, edad);
-  });
+  console.log(characterId + " PARAMETROS")
+
+
+
+  GetCharacterById(characterId, CharacterRender)
+
 };
+
+
+function CharacterRender (json) {
+  let character = json[0]
+  
+  let colorSeleccionado = ''
+
+  switch (character.house) {
+    case 'Gryffindor':
+      colorSeleccionado = 'rojo'
+      break;
+    case 'Slytherin':
+      colorSeleccionado = 'verde'
+      break;
+    default:
+      break;
+  }
+  
+
+  
+  $("#details").html(
+    Detail(
+      character.name,
+      character.image,
+      character.house,
+      character.id,
+      character.species,
+      colorSeleccionado))
+}
 
 
