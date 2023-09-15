@@ -3,18 +3,18 @@ import { Card } from "../components/Card.js";
 import { GetCharacters, GetCharacterByFilter, GetCharactersByHouse } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 import { Filtro } from "../components/Filtros.js";
+import { Paginacion } from "../components/Paginacion.js";
 
 function DefaultRender(json){ 
   const personajesConImagen = json.filter((personaje) => personaje.image);
-  personajesConImagen.forEach((personaje) => {
-    if (personaje.image != ""){
+  localStorage.setItem("pagina",0);
+  for (let i = 0; i < 10; i++) {
     $("#contenedor-cartas").append(Card(
-        personaje.name,
-        personaje.image,
-        personaje.house,
-        personaje.id
-      )) };
-  });
+      personajesConImagen[i].name,
+      personajesConImagen[i].image,
+      personajesConImagen[i].house,
+      personajesConImagen[i].id
+  ))};
   localStorage.setItem("busqueda",JSON.stringify(personajesConImagen))
 }
 
@@ -25,7 +25,7 @@ function RenderizarCasa(casa){
 
 function CasasRender(json){
   $("#contenedor-cartas").html("")
-  localStorage.setItem("busqueda",JSON.stringify(json))
+  localStorage.setItem("busqueda",JSON.stringify(json.filter((personaje) => personaje.image)))
   RenderResult()
 }
 
@@ -39,11 +39,16 @@ function ActualizacionPorCasas (){
   });
 }
 
+function PaginacionRender (){
+  $("#paginacion").append(Paginacion())
+  
+}
+
 export const IndexRender = () => {
   $("#root").html(Navbar(true))
   EfectoNavbar();
   ActualizacionPorCasas()
-
+  PaginacionRender()
   localStorage.setItem("busqueda","[]")
 
   $("#filtros").append(Filtro());
@@ -81,7 +86,6 @@ export const IndexRender = () => {
     RenderResult()
   });
   GetCharacters(DefaultRender)
-  
 };
 
 const RenderResult = () =>{
@@ -94,6 +98,7 @@ const RenderResult = () =>{
   $("#contenedor-cartas").html("")
   var ascOrDesc = $('#orderButton').attr('class');
   ordenarPersonajes(personajesFiltradosPorCasa,ascOrDesc)
+
   personajesFiltradosPorCasa.forEach((personaje) => {
     if (personaje.image != ""){
     $("#contenedor-cartas").append(Card(
@@ -106,9 +111,7 @@ const RenderResult = () =>{
 }
 
 const RenderSearch = (json)=>{
-  //console.log((json) +  "HOLASHOLAS")
   $("#contenedor-cartas").html("")
-  //localStorage.setItem("busqueda",JSON.stringify(json))
   json.forEach((personaje) => {
     if (personaje.image != ""){
     $("#contenedor-cartas").append(Card(
@@ -156,4 +159,7 @@ function ordenarPersonajes(personajes, orden) {
   });
 }
 
+function deshabilitarPaginas(prev,next){
 
+  
+}
