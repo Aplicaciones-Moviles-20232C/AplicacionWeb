@@ -1,7 +1,6 @@
 import { Navbar } from "../components/Navbar.js";
 import { Card } from "../components/Card.js";
-import { hpCharacters } from "./jsonHP.js";
-import { GetCharacters, GetCharacterById, GetCharacterByFilter } from "../services/apiCall.js";
+import { GetCharacters, GetCharacterByFilter, GetCharactersByHouse } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 import { Filtro } from "../components/Filtros.js";
 
@@ -19,9 +18,32 @@ function DefaultRender(json){
   localStorage.setItem("busqueda",JSON.stringify(personajesConImagen))
 }
 
+function RenderizarCasa(casa){
+  console.log(casa)
+  GetCharactersByHouse(casa,CasasRender)
+}
+
+function CasasRender(json){
+  $("#contenedor-cartas").html("")
+  localStorage.setItem("busqueda",JSON.stringify(json))
+  RenderResult()
+}
+
+function ActualizacionPorCasas (){
+  var elementosLista = document.querySelectorAll(".actualizar-casa");
+  elementosLista.forEach(function(elemento) {
+    var nombreCasa = elemento.innerHTML;
+    elemento.addEventListener("click", function() {
+      RenderizarCasa(nombreCasa);
+    });
+  });
+}
+
 export const IndexRender = () => {
-  $("#root").html(Navbar())
+  $("#root").html(Navbar(true))
   EfectoNavbar();
+  ActualizacionPorCasas()
+
   localStorage.setItem("busqueda","[]")
 
   $("#filtros").append(Filtro());
@@ -32,8 +54,7 @@ export const IndexRender = () => {
     function buscarPersonaje() {
       const inputValor = $(".search-input").val();
       // Aca va el codigo cuando se hace el debounce
-      GetCharacterByFilter(inputValor, RenderResult);
-      
+      GetCharacterByFilter(inputValor, RenderSearch);
     }
     const buscarPersonajeDebounce = debounce(buscarPersonaje, 600);
     $(".search-input").on("input", buscarPersonajeDebounce);
@@ -52,6 +73,7 @@ export const IndexRender = () => {
     }
     RenderResult()
   });
+
   //AGREGO LA FUNCIONALIDAD DE FILTRO DE CASA
   $('#select-house').change(function() {
     let houseSelected = $('#select-house').val();
@@ -73,15 +95,28 @@ const RenderResult = () =>{
   var ascOrDesc = $('#orderButton').attr('class');
   ordenarPersonajes(personajesFiltradosPorCasa,ascOrDesc)
   personajesFiltradosPorCasa.forEach((personaje) => {
-    if (personaje.image == ""){
-      personaje.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
-    }
+    if (personaje.image != ""){
     $("#contenedor-cartas").append(Card(
         personaje.name,
         personaje.image,
         personaje.house,
         personaje.id
-      )) ;
+      )) ;}
+  });
+}
+
+const RenderSearch = (json)=>{
+  //console.log((json) +  "HOLASHOLAS")
+  $("#contenedor-cartas").html("")
+  //localStorage.setItem("busqueda",JSON.stringify(json))
+  json.forEach((personaje) => {
+    if (personaje.image != ""){
+    $("#contenedor-cartas").append(Card(
+        personaje.name,
+        personaje.image,
+        personaje.house,
+        personaje.id
+      )) ;}
   });
 }
 

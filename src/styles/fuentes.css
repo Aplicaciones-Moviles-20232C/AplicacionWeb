@@ -9,7 +9,7 @@ h1{
 }
 h2{
     font-family: Barlow Semi Condensed;
-    font-size: 30px;
+    font-size: 1.3rem;
     font-style: normal;
     font-weight: 500;
 }
@@ -28,20 +28,20 @@ h3{
         font-size: 30px;
     }
     h2{
-        font-size: 20px;
+        font-size: 19px;
     }
     h3{
         font-size: 15px;
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     /* Estilos para tablets */
     h1{
         font-size: 40px;
     }
     h2{
-        font-size: 30px;
+        font-size: 1rem;
     }
     h3{
         font-size: 18px;
