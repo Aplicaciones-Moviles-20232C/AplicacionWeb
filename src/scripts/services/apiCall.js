@@ -32,7 +32,7 @@ export const GetCharacterById = (id, callback) =>{
 
 
 export const GetCharacterByFilter = (searchTerm, callback) =>{
-  $.get( `${baseUrl}`, function( data ) {
+  /*$.get( `${baseUrl}`, function( data ) {
     //Si el termino que recibo esta vacio, entonces le retorno todos los personajes. Sino hago el filtrado
     searchTerm=="" ? localStorage.setItem("busqueda", JSON.stringify(data)) : localStorage.setItem("busqueda", buscarPersonajesSimilares(searchTerm, data));
     callback()
@@ -40,14 +40,18 @@ export const GetCharacterByFilter = (searchTerm, callback) =>{
     // En caso de error, retorno la lista almacenada localmente
     searchTerm=="" ? localStorage.setItem("busqueda", JSON.stringify(hpCharacters)) : localStorage.setItem("busqueda", buscarPersonajesSimilares(searchTerm, hpCharacters)); 
     callback()
-  });
+  });*/
+  console.log("hola")
+  let data = JSON.parse(localStorage.getItem("busqueda"))
+  searchTerm == "" ? data = data : data = buscarPersonajesSimilares(searchTerm, data);
+  callback(data)
 }
 
 
 //Funcion para filtrar personajes localmente, la api no lo hace
-function buscarPersonajesSimilares(nombre, personajes) {
+function buscarPersonajesSimilares(searchTerm, personajes) {
   const resultados = personajes.filter((personaje) => {
-    return personaje.name.toLowerCase().includes(nombre.toLowerCase());
+    return personaje.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
-  return JSON.stringify(resultados);
+  return resultados;
 }
