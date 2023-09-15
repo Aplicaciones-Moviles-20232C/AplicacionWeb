@@ -1,0 +1,10 @@
+#conjuros{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.spell{
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.274);
+}

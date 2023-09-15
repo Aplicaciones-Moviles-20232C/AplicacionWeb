@@ -47,7 +47,15 @@ export const GetCharacterByFilter = (searchTerm, callback) =>{
   callback(data)
 }
 
-
+export const GetSpells = (callback)=>{
+  $.get( `https://hp-api.onrender.com/api/spells`, function( data ) {
+    //Si el termino que recibo esta vacio, entonces le retorno todos los personajes. Sino hago el filtrado
+    callback(data)
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    // En caso de error, retorno la lista almacenada localmente
+    callback(data)
+  });
+}
 //Funcion para filtrar personajes localmente, la api no lo hace
 function buscarPersonajesSimilares(searchTerm, personajes) {
   const resultados = personajes.filter((personaje) => {

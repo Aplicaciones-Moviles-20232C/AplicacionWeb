@@ -1,10 +1,10 @@
 import { Navbar } from "../components/Navbar.js";
 import { Card } from "../components/Card.js";
-import { GetCharacters, GetCharacterByFilter, GetCharactersByHouse } from "../services/apiCall.js";
+import { GetCharacters, GetCharacterByFilter, GetCharactersByHouse, GetSpells } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 import { Filtro } from "../components/Filtros.js";
 import { Paginacion } from "../components/Paginacion.js";
-
+import { Spell } from "../components/Spell.js";
 function DefaultRender(json){ 
   const personajesConImagen = json.filter((personaje) => personaje.image);
   localStorage.setItem("pagina",0);
@@ -86,8 +86,15 @@ export const IndexRender = () => {
     RenderResult()
   });
   GetCharacters(DefaultRender)
+  GetSpells(RenderSpells)
 };
 
+const RenderSpells = (conjuros)=>{
+  conjuros = MezclarArray(conjuros)
+  for (let i = 0; i < 10; i++) {
+    $("#conjuros").append(Spell(conjuros[i].name,conjuros[i].description))
+  }
+}
 const RenderResult = () =>{
   //Traigo la casa seleccionada
   let houseSelected = $('#select-house').val();
@@ -162,4 +169,22 @@ function ordenarPersonajes(personajes, orden) {
 function deshabilitarPaginas(prev,next){
 
   
+}
+
+function MezclarArray(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex > 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
 }
