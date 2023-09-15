@@ -1,9 +1,9 @@
 import { hpCharacters } from "../containers/jsonHP.js";
 
-const baseUrl = "https://hp-api.onrender.com/api/"
+const baseUrl = "https://hp-api.onrender.com/api/characters/"
 
 export const GetCharacters = (callback)=>{
-    $.get( `${baseUrl}characters`, function( data ) {
+    $.get( `${baseUrl}`, function( data ) {
         callback( data );
       }).fail(function (jqXHR, textStatus, errorThrown) {
         // En caso de error, retorno la lista almacenada localmente
@@ -11,9 +11,18 @@ export const GetCharacters = (callback)=>{
       });
 }
 
+export const GetCharactersByHouse = (house, callback) =>{
+  $.get( `${baseUrl}house/${house}`, function( data ) {
+      callback( data ); 
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+      // En caso de error, retorno la lista almacenada localmente
+      callback( hpCharacters ); 
+    });
+}
+
 
 export const GetCharacterById = (id, callback) =>{
-    $.get( `${baseUrl}character/${id}`, function( data ) {
+    $.get( `${baseUrl}${id}`, function( data ) {
         callback( data ); 
       }).fail(function (jqXHR, textStatus, errorThrown) {
         // En caso de error, retorno la lista almacenada localmente
@@ -21,8 +30,9 @@ export const GetCharacterById = (id, callback) =>{
       });
 }
 
+
 export const GetCharacterByFilter = (searchTerm, callback) =>{
-  $.get( `${baseUrl}characters`, function( data ) {
+  $.get( `${baseUrl}`, function( data ) {
     //Si el termino que recibo esta vacio, entonces le retorno todos los personajes. Sino hago el filtrado
     searchTerm=="" ? localStorage.setItem("busqueda", JSON.stringify(data)) : localStorage.setItem("busqueda", buscarPersonajesSimilares(searchTerm, data));
     callback()
