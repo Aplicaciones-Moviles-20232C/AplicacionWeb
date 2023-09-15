@@ -1,16 +1,17 @@
 import { Navbar } from "../components/Navbar.js";
-import { Detail } from "../components/Detail.js";
+import { Compartir } from "../components/Compartir.js";
 import { hpCharacters } from "./jsonHP.js";
 import { GetCharacters, GetCharacterById } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 
-export const DetailRender = () => {
+export const CompartirRender = () => {
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
   EfectoNavbar();
   
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
+  
  
 
 
@@ -18,31 +19,10 @@ export const DetailRender = () => {
   GetCharacterById(characterId, CharacterRender)
 
 };
-
-
 function CharacterRender (json) {
-  let character = json[0]
-  
-  let colorSeleccionado = ''
-
-  switch (character.house) {
-    case 'Gryffindor':
-      colorSeleccionado = 'rojo'
-      break;
-    case 'Slytherin':
-      colorSeleccionado = 'verde'
-      break;
-      case 'Hufflepuff':
-      colorSeleccionado = 'amarillo'
-      break;
-    default:
-      break;
-  }
-  
-
-  
-  $("#details").html(
-    Detail(
+    let character = json[0]
+  $("#compartir").html(
+    Compartir(
       character.name,
       character.image,
       character.house,
@@ -52,5 +32,3 @@ function CharacterRender (json) {
       character.dateOfBirth,
       colorSeleccionado))
 }
-
-
