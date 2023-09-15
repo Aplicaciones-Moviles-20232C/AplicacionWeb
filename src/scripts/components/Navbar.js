@@ -30,7 +30,7 @@ export const Navbar = (esIndex)=> {
     <ul class="nav-menu">
       <li class="nav-menu-item">
       <h2>
-        <a href="#" class="nav-menu-link nav-link">Personajes</a>
+        <a href="../../src/views/index.html" class="nav-menu-link nav-link">Personajes</a>
      </h2> 
         </li>
       <li class="nav-menu-item">

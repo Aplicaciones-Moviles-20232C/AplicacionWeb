@@ -63,7 +63,9 @@
     background-color: #034574;
     transition: 0.5s;
   }
-  
+  .actualizar-casa{
+    cursor: pointer;
+  }
   /* TOGGLE */
   .nav-toggle {
     color: rgb(0, 0, 0);

@@ -1,0 +1,117 @@
+.rojo{
+    color: rgba(245, 64, 64, 0.8);
+}
+
+.verde {
+    color: rgba(0, 119, 0, 0.8);
+}
+.amarillo{
+    color:  rgb(174, 204, 92);
+}
+#details{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    grid-column-gap: 5px;
+    grid-row-gap: 20px;
+    padding: 1% 1%;
+}
+.detail{
+    background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el contenedor */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.overlay {
+    background-color: rgba(192, 192, 192, 0.8); /* Fondo semi-transparente para el contenido */
+    padding: 1% 4%;
+    border-radius: 9%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra para el contenido */
+}
+.detail-img {
+    width: 300px;
+    height: 400px;
+    padding: 2%;
+     /* Ajusta la imagen al tamaño del contenedor */
+    border-radius: 4%; /* Hace que la imagen sea circular (puedes ajustar el valor según tus preferencias) */
+}
+.info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Cambia la dirección del flexbox a columna en pantallas más pequeñas */
+    align-items: center;
+    text-align: center;
+}
+.info h1 {
+    margin: 1% 0;
+}
+.botones{
+    grid-column: 2fr;
+    padding: 1%;
+}
+@media screen and (min-width: 500px) and (max-width: 768px) {
+    /* Estilos para tablets */
+    #details{
+        grid-template-columns: 1fr;
+        align-items: center;
+       
+    }
+    .botones{
+        width: 1%;
+
+    }
+ 
+}
+
+@media screen and (max-width: 768px) {
+    .detail {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna */
+        grid-template-columns: 1fr;
+        align-items: center;
+        margin: 0%;
+       
+        
+        
+    }
+    
+
+    .detail-img {
+        order: 1; /* Cambia el orden de la imagen para que esté arriba */
+        margin-bottom: 0%; /* Agrega un margen inferior a la imagen */
+        width: 212px;
+        height: 284px;
+        padding: 1%;
+        
+    }
+
+    .overlay {
+        order: 2; /* Cambia el orden de la información para que esté abajo */
+        padding: 5% 5%;
+    }
+    
+}
+@media screen and (min-width: 1024px) {
+    /* Estilos para pantallas grandes, como computadoras */
+    #details{
+        grid-template-columns: repeat(3,  1fr);
+        align-items: center;
+        padding: 0% 20%;
+        
+        
+    }
+    .overlay{
+        padding: 0% 10%;
+        
+    }
+}
