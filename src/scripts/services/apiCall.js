@@ -20,7 +20,6 @@ export const GetCharactersByHouse = (house, callback) =>{
     });
 }
 
-
 export const GetCharacterById = (id, callback) =>{
     $.get( `${baseUrl}${id}`, function( data ) {
         callback( data ); 
@@ -30,32 +29,31 @@ export const GetCharacterById = (id, callback) =>{
       });
 }
 
-
-export const GetCharacterByFilter = (searchTerm, callback) =>{
+export const FilterCharacter = (searchTerm, callback) =>{
   /*$.get( `${baseUrl}`, function( data ) {
     //Si el termino que recibo esta vacio, entonces le retorno todos los personajes. Sino hago el filtrado
-    searchTerm=="" ? localStorage.setItem("busqueda", JSON.stringify(data)) : localStorage.setItem("busqueda", buscarPersonajesSimilares(searchTerm, data));
+    searchTerm=="" ? localStorage.setItem("personajes", JSON.stringify(data)) : localStorage.setItem("personajes", buscarPersonajesSimilares(searchTerm, data));
     callback()
   }).fail(function (jqXHR, textStatus, errorThrown) {
     // En caso de error, retorno la lista almacenada localmente
-    searchTerm=="" ? localStorage.setItem("busqueda", JSON.stringify(hpCharacters)) : localStorage.setItem("busqueda", buscarPersonajesSimilares(searchTerm, hpCharacters)); 
+    searchTerm=="" ? localStorage.setItem("personajes", JSON.stringify(hpCharacters)) : localStorage.setItem("personajes", buscarPersonajesSimilares(searchTerm, hpCharacters)); 
     callback()
   });*/
   console.log("hola")
-  let data = JSON.parse(localStorage.getItem("busqueda"))
+  let data = JSON.parse(localStorage.getItem("personajes"))
   searchTerm == "" ? data = data : data = buscarPersonajesSimilares(searchTerm, data);
+  localStorage.setItem("busqueda", JSON.stringify(data))
   callback(data)
 }
 
 export const GetSpells = (callback)=>{
   $.get( `https://hp-api.onrender.com/api/spells`, function( data ) {
-    //Si el termino que recibo esta vacio, entonces le retorno todos los personajes. Sino hago el filtrado
     callback(data)
   }).fail(function (jqXHR, textStatus, errorThrown) {
-    // En caso de error, retorno la lista almacenada localmente
     callback(data)
   });
 }
+
 //Funcion para filtrar personajes localmente, la api no lo hace
 function buscarPersonajesSimilares(searchTerm, personajes) {
   const resultados = personajes.filter((personaje) => {
