@@ -59,7 +59,6 @@ export const IndexRender = () => {
     if ($(this).hasClass("asc")) {
       $(this).removeClass("asc").addClass("desc");
       $(this).html("<h3>Ordenar por nombre: Descendente</h3>")
-      console.log("ESTOY EJECUTANDO EL CAMBIO A DESC")
       localStorage.setItem("orden",'desc')
     } else {
       $(this).removeClass("desc").addClass("asc");
@@ -69,13 +68,7 @@ export const IndexRender = () => {
     RenderResult()
   });
 
-  //AGREGO LA FUNCIONALIDAD DE FILTRO DE CASA
-  $('#select-house').change(function() {
-    let houseSelected = $('#select-house').val();
-    console.log(houseSelected)
-    RenderResult()
-  });
-  //GetCharacters(DefaultRender) que por defecto haga el render de gryffindor
+  //Por defecto renderizo Gryffindor
   RenderizarCasa("Gryffindor")
   GetSpells(RenderSpells)
 };
