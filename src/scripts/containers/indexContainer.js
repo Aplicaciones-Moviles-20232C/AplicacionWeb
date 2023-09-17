@@ -1,33 +1,12 @@
 import { Navbar } from "../components/Navbar.js";
 import { Card } from "../components/Card.js";
-import { GetCharacters, GetCharacterByFilter, GetCharactersByHouse } from "../services/apiCall.js";
+import { FilterCharacter, GetCharactersByHouse, GetSpells } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 import { Filtro } from "../components/Filtros.js";
+import { Paginacion } from "../components/Paginacion.js";
+import { RenderSpells } from "../render/spellsRender.js";
+import { debounce } from "../effects/debounce.js";
 
-function DefaultRender(json){ 
-  const personajesConImagen = json.filter((personaje) => personaje.image);
-  personajesConImagen.forEach((personaje) => {
-    if (personaje.image != ""){
-    $("#contenedor-cartas").append(Card(
-        personaje.name,
-        personaje.image,
-        personaje.house,
-        personaje.id
-      )) };
-  });
-  localStorage.setItem("busqueda",JSON.stringify(personajesConImagen))
-}
-
-function RenderizarCasa(casa){
-  console.log(casa)
-  GetCharactersByHouse(casa,CasasRender)
-}
-
-function CasasRender(json){
-  $("#contenedor-cartas").html("")
-  localStorage.setItem("busqueda",JSON.stringify(json))
-  RenderResult()
-}
 
 function ActualizacionPorCasas (){
   var elementosLista = document.querySelectorAll(".actualizar-casa");
@@ -39,97 +18,81 @@ function ActualizacionPorCasas (){
   });
 }
 
+function RenderizarCasa(casa){
+  GetCharactersByHouse(casa,CasasRender)
+}
+
+function CasasRender(json){
+  $("#contenedor-cartas").html("")
+  localStorage.setItem("busqueda","[]")
+  localStorage.setItem("personajes",JSON.stringify(json.filter((personaje) => personaje.image)))
+  RenderResult()
+}
+
+function PaginacionRender (){
+  $("#paginacion").append(Paginacion())
+}
+
 export const IndexRender = () => {
   $("#root").html(Navbar(true))
   EfectoNavbar();
   ActualizacionPorCasas()
-
-  localStorage.setItem("busqueda","[]")
-
+  PaginacionRender()
+  localStorage.setItem("personajes","[]")
+  
   $("#filtros").append(Filtro());
-
   
   //AGREGO LA FUNCIONALIDAD DE LA BARRA DE BUSQUEDA
   $(document).ready(function() {
     function buscarPersonaje() {
       const inputValor = $(".search-input").val();
       // Aca va el codigo cuando se hace el debounce
-      GetCharacterByFilter(inputValor, RenderSearch);
+      FilterCharacter(inputValor, RenderResult);
     }
     const buscarPersonajeDebounce = debounce(buscarPersonaje, 600);
     $(".search-input").on("input", buscarPersonajeDebounce);
   });
 
   //AGREGO LA FUNCIONALIDAD DEL FILTRO DE NOMBRE
+  localStorage.setItem("orden",'asc') //por defecto lo seteo en asc
   $("#orderButton").click(function() {
     if ($(this).hasClass("asc")) {
       $(this).removeClass("asc").addClass("desc");
       $(this).html("<h3>Ordenar por nombre: Descendente</h3>")
-      console.log("ESTOY EJECUTANDO EL CAMBIO A DESC")
+      localStorage.setItem("orden",'desc')
     } else {
       $(this).removeClass("desc").addClass("asc");
       $(this).html("<h3>Ordenar por nombre: Ascendente</h3>")
-      console.log("ESTOY EJECUTANDO EL CAMBIO A ASC")
+      localStorage.setItem("orden",'asc')
     }
     RenderResult()
   });
 
-  //AGREGO LA FUNCIONALIDAD DE FILTRO DE CASA
-  $('#select-house').change(function() {
-    let houseSelected = $('#select-house').val();
-    console.log(houseSelected)
-    RenderResult()
-  });
-  GetCharacters(DefaultRender)
-  
+  //Por defecto renderizo Gryffindor
+  RenderizarCasa("Gryffindor")
+  GetSpells(RenderSpells)
 };
 
 const RenderResult = () =>{
-  //Traigo la casa seleccionada
-  let houseSelected = $('#select-house').val();
-  houseSelected == null ? houseSelected = "NA" : houseSelected = houseSelected.toUpperCase();
-  let json = JSON.parse(localStorage.getItem("busqueda"));
-  let personajesFiltradosPorCasa;
-  houseSelected === "NA" ? personajesFiltradosPorCasa = json : personajesFiltradosPorCasa = json.filter(personaje => personaje.house.toUpperCase() === houseSelected);
+  let busqueda = JSON.parse(localStorage.getItem("busqueda"))
+  let personajes = JSON.parse(localStorage.getItem("personajes"))
+  let orden = localStorage.getItem("orden")
+  let jsonARenderizar ;
+  
+  busqueda.length == 0 ? jsonARenderizar = personajes : jsonARenderizar = busqueda
+
   $("#contenedor-cartas").html("")
-  var ascOrDesc = $('#orderButton').attr('class');
-  ordenarPersonajes(personajesFiltradosPorCasa,ascOrDesc)
-  personajesFiltradosPorCasa.forEach((personaje) => {
-    if (personaje.image != ""){
+
+  ordenarPersonajes(jsonARenderizar,orden)
+
+  jsonARenderizar.forEach((personaje) => {
     $("#contenedor-cartas").append(Card(
         personaje.name,
         personaje.image,
         personaje.house,
         personaje.id
-      )) ;}
+      )) ;
   });
-}
-
-const RenderSearch = (json)=>{
-  //console.log((json) +  "HOLASHOLAS")
-  $("#contenedor-cartas").html("")
-  //localStorage.setItem("busqueda",JSON.stringify(json))
-  json.forEach((personaje) => {
-    if (personaje.image != ""){
-    $("#contenedor-cartas").append(Card(
-        personaje.name,
-        personaje.image,
-        personaje.house,
-        personaje.id
-      )) ;}
-  });
-}
-
-function debounce(func, delay) {
-  let timeoutId;
-  return function() {
-    const context = this;
-    const args = arguments;
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(function() {
-      func.apply(context, args);
-    }, delay);
-  };
 }
 
 function ordenarPersonajes(personajes, orden) {
@@ -155,5 +118,3 @@ function ordenarPersonajes(personajes, orden) {
     }
   });
 }
-
-

@@ -1,0 +1,14 @@
+#paginacion{
+    margin:  40px 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#paginacion button{
+    height: 40px;
+    width: 30%;
+    margin: auto;
+    background-color: #FF0000;
+    border-radius: 0px;
+    border: 0;
+    color: #FFD700;
+}
