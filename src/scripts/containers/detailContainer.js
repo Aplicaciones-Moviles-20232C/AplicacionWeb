@@ -35,6 +35,9 @@ function CharacterRender (character) {
       break;
   }
   
+  let existe = ExisteFavorito(character);
+  let checked = existe ? "checked" : "";
+
   $("#details").html(
     Detail(
       character.name,
@@ -44,7 +47,8 @@ function CharacterRender (character) {
       character.species,
       character.actor,
       character.dateOfBirth,
-      colorSeleccionado))
+      colorSeleccionado,checked
+      ))
 
       //Selecciono los elementos que tengan la case fav 
     //y les agrego el evento del guardado en localstorage con jQuery
@@ -80,7 +84,7 @@ export const searchJsonId = (json, id) =>
 
 function ExisteFavorito(personaje) {
   var favoritos = JSON.parse(localStorage.getItem("Favoritos") || "[]");
-  const index = listaPersonajes.findIndex(p => p.id === personaje.id);
+  const index = favoritos.findIndex(p => p.id === personaje.id);
   return ((index > -1))
 }
 
