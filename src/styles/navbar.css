@@ -134,4 +134,8 @@
     .nav-toggle:focus:not(:focus-visible) {
       outline: none;
     }
+    .img-casas{
+    width: 7%;
+    height: 7%;
+    }
   }

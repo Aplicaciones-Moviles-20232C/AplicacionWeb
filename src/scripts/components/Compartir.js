@@ -1,25 +1,37 @@
-export const Compartir = (nombre,imagen,escuela,id,especie,actor,anio, color) =>{
+export const Compartir = (nombre,imagen,escuela,id,especie,actor,anio) =>{
     return `<article class="contenedor-compartir">
-    <div class="compartir ${color}">
-        <img class="compartir-img" src="${imagen}" />
-        <div class="overlay ">
-            <div class="info ${color}">
+    <div class="compartir">
+    <form id="formulario" method="post">
+        <div class="ormulario">
+            <div class="info">
                 <div class = "div-nombre">
-                    <h1>Nombre: ${nombre}</h1>
+                <label for="label-nombre"><h2>Nombre:</h2></label>
+                    <input type="text" id="nom-imp" name="miTexto" value= ${nombre}>
+                    
                 </div>
                 <div class = "div-actor">
-                <h1>Actor:${actor}</h1>
+                <label for="actor"><h2>Actor:</h2></label>
+                <input type="text" id="actor-imp" name="miTexto" value= ${actor}>
+              
               </div>
-                <div class = "div-escuela ">
-                    <h1>Casa:${escuela}</h1
+                <div class = "div-escuela">
+                <label for="label-escuela"><h2>Casa:</h2></label>
+                <input type="text" id="escuela-imp" name="miTexto" value=${escuela}>
                 </div>
                 <div class = "div-especie">
-                    <h1>Especie:${especie}</h1>
+                <label for="label-especie"><h2>Especie:</h2></label>
+                <input type="text" id="especie-imp" name="miTexto" value=${especie}>
                     <div class = "div-anio">
-                    <h1>Fecha de nacimiento:${anio}</h1>
+                    <label for="label-anio"><h2>Fecha de nacimiento:</h2></label>
+                <input type="text" id="anio-imp" name="miTexto" value=${anio}>
                   </div>
+                 
             </div>
+            
            </div>
+           <input type="submit" value="Enviar">
+           <input type="submit" value="Cancelar">
+           </form>
         </div>
          </div>
     </article>`
