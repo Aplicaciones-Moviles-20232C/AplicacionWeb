@@ -11,18 +11,15 @@ export const DetailRender = () => {
   
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
- 
-
 
 
   GetCharacterById(characterId, CharacterRender)
+  
 
 };
 
-
-function CharacterRender (json) {
-  let character = json[0]
-  
+function CharacterRender (character) {
+  AgregarAlHistorial(character)
   let colorSeleccionado = ''
 
   switch (character.house) {
@@ -39,6 +36,15 @@ function CharacterRender (json) {
       break;
   }
   
+  function AgregarAlHistorial(personaje) {
+    var historial = JSON.parse(localStorage.getItem("Historial") || "[]");
+    var id = searchJsonId(historial, personaje.id)
+    if (id !== -1) {
+        historial.splice(id, 1);
+    }
+    historial.unshift(personaje);
+    localStorage.setItem("Historial", JSON.stringify(historial));
+}
 
   
   $("#details").html(
@@ -53,4 +59,11 @@ function CharacterRender (json) {
       colorSeleccionado))
 }
 
-
+export const searchJsonId = (json, id) =>
+{
+    var indiceEncontrado = json.findIndex(function(item) {
+        return item.id === id;
+    });
+    console.log(indiceEncontrado);
+    return indiceEncontrado;
+}

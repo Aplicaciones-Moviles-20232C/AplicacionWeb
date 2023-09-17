@@ -1,4 +1,4 @@
-export const Detail = (nombre,imagen,escuela,id,especie,actor,anio, color) =>{
+export const Detail = (nombre,imagen,escuela,id,especie,actor,anio,color) =>{
     return `<article class="contenedor-detail">
     <div class="detail ${color}">
         <img class="detail-img" src="${imagen}" />
@@ -19,12 +19,12 @@ export const Detail = (nombre,imagen,escuela,id,especie,actor,anio, color) =>{
                     <h1>Fecha de nacimiento:${anio}</h1>
                   </div>
                   <div class"botones">
-                    <a href="favorito.html">
-                  <button class="boton-fav"><img src="/src/img/favorito.svg"> </button>
-                  </a>
-                  <a href="compartir.html?id=${id}"> 
-                  <button class="boton-compartir" ><img src="/src/img/compartir.svg"></button>
-                 </a> 
+                    
+                  <input id="${id}-fav" class="heart" data-id = ${id} type="checkbox" checked/>
+                  <label for="${id}-fav">❤</label>
+
+                  <button class="boton-compartir" onclick=""><img src="/src/img/compartir.svg"></button>
+                  
                   </div> 
             </div>
            </div>

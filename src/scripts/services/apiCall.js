@@ -21,8 +21,8 @@ export const GetCharactersByHouse = (house, callback) =>{
 }
 
 export const GetCharacterById = (id, callback) =>{
-    $.get( `${baseUrl}${id}`, function( data ) {
-        callback( data ); 
+    $.get( `https://hp-api.onrender.com/api/character/${id}`, function( data ) {
+        callback( data[0] ); 
       }).fail(function (jqXHR, textStatus, errorThrown) {
         // En caso de error, retorno la lista almacenada localmente
         callback( hpCharacters ); 
