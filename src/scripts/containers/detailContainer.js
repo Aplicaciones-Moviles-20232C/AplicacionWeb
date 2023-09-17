@@ -52,8 +52,8 @@ function CharacterRender (character) {
       var fav = this;
       fav.addEventListener('click', event => {
           var id = event.target.getAttribute("data-id");
-          console.log(id)
-          UpdateFavoritos(id)
+          console.log(character)
+          UpdateFavoritos(character)
       });
   });
 }
@@ -78,22 +78,27 @@ export const searchJsonId = (json, id) =>
     return indiceEncontrado;
 }
 
-
-function ExisteFavorito(id) {
+function ExisteFavorito(personaje) {
   var favoritos = JSON.parse(localStorage.getItem("Favoritos") || "[]");
-  const index = favoritos.indexOf(id);
+  const index = listaPersonajes.findIndex(p => p.id === personaje.id);
   return ((index > -1))
 }
 
-function UpdateFavoritos(id) {
-  //Traigo los elementos del localstorage y sino hay nada trabajo con un array vacio
-  var favoritos = JSON.parse(localStorage.getItem("Favoritos") || "[]");
-  const index = favoritos.indexOf(id);
-  (index > -1) ? // IndexOf retorna -1 en el caso de no encontrar un elemento
-      favoritos.splice(index, 1) : //Elimino el elemento de la lista en el caso de que esté
-      favoritos.push(id); // Añado en el caso que no esté
 
-  favoritos.sort()
-  // Guardo la lista de favoritos
-  localStorage.setItem("Favoritos", JSON.stringify(favoritos));
+function UpdateFavoritos(personaje) {
+  var listaPersonajes = JSON.parse(localStorage.getItem("Favoritos") || "[]");
+  // Buscar el índice del personaje en la lista por su ID
+  const index = listaPersonajes.findIndex(p => p.id === personaje.id);
+
+  if (index !== -1) {
+    // Si el personaje ya existe, eliminarlo de la lista
+    listaPersonajes.splice(index, 1);
+    localStorage.setItem("Favoritos",JSON.stringify(listaPersonajes))
+    return "Personaje eliminado.";
+  } else {
+    // Si el personaje no existe en la lista, agregarlo
+    listaPersonajes.push(personaje);
+    localStorage.setItem("Favoritos",JSON.stringify(listaPersonajes))
+    return "Personaje agregado.";
+  }
 }
