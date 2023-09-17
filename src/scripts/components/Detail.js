@@ -19,9 +19,11 @@ export const Detail = (nombre,imagen,escuela,id,especie,actor,anio,color) =>{
                     <h1>Fecha de nacimiento:${anio}</h1>
                   </div>
                   <div class"botones">
-                    
-                  <input id="${id}-fav" class="heart" data-id = ${id} type="checkbox" checked/>
-                  <label for="${id}-fav">❤</label>
+                    <div>
+                      <input id="${id}-fav" class="heart" data-id = ${id} type="checkbox" checked/>
+                      <label for="${id}-fav">❤</label>
+                    </div>
+                  
 
                   <button class="boton-compartir" onclick=""><img src="/src/img/compartir.svg"></button>
                   
