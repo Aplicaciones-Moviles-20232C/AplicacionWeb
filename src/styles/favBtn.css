@@ -4,7 +4,7 @@
 }
 
 .heart {
-    color: #aab8c2;
+    color: #aab8c2 !important;
     cursor: pointer;
     font-size: 6em;
     align-self: center;
@@ -26,7 +26,7 @@
 }
 
 .heart:checked+label {
-    color: #ff0033;
+    color: rgb(255, 0, 0);
     will-change: font-size;
     animation: heart 0.2s cubic-bezier(.17, .89, .32, 1.49);
 }
