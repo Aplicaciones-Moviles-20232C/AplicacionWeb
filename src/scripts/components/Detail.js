@@ -35,7 +35,7 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
                   <div class = "botones">
                     <div>
                       <input id="${id}-fav" class="heart" type="checkbox" ${checked}/>
-                      <label for="${id}-fav">❤</label>
+                      <label id="heart-icon" for="${id}-fav">❤</label>
                     </div>
                     <button class="boton-compartir" onclick=""><img src="/src/img/compartir.svg"></button>
                   </div> 

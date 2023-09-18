@@ -4,16 +4,18 @@
 }
 
 .heart {
-    color: #aab8c2 !important;
+    color: #aab8c2;
     cursor: pointer;
-    font-size: 6em;
+    
     align-self: center;
     transition: color 0.1s ease-in-out;
 }
 
-.heart:hover {
-    color: grey;
+#heart-icon{
+    font-size: 1.7em;
 }
+
+
 
 .heart::selection {
     color: none;
@@ -28,14 +30,13 @@
 .heart:checked+label {
     color: rgb(255, 0, 0);
     will-change: font-size;
-    animation: heart 0.2s cubic-bezier(.17, .89, .32, 1.49);
+    animation: heart 0.2s cubic-bezier(.97, .99, .1, 1.1);
 }
 
 
 @keyframes heart {
-
     0%,
-    17.5% {
+    5.5% {
         font-size: 0;
     }
 }
