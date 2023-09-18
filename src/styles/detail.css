@@ -5,47 +5,49 @@
 .verde {
     color: rgba(0, 53, 0, 0.8);
 }
+
 .amarillo{
     color:  rgb(172, 174, 0);
 }
 
 #details{
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr;
+    margin-top: 20px;
+    margin: 20px 1%;
+    padding: 5% 0%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
     align-items: center;
     grid-column-gap: 5px;
     grid-row-gap: 20px;
-    padding: 1% 1%;
 }
+
 .detail{
-    background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el contenedor */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-     
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
 }
 
 
-
+.info-image{
+    display: grid;
+}
 .info-character {
-    background-color: rgba(192, 192, 192, 0.8); /* Fondo semi-transparente para el contenido */
     padding: 1% 4%;
     border-radius: 9%;
     text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra para el contenido */
+    
+}
+.div-nombre h1{
+    font-size:3.5rem;
 }
 .detail-img {
+    margin: auto;
+    border-radius: 30px;
     width: 300px;
     height: 400px;
-    padding: 2%;
-     /* Ajusta la imagen al tamaño del contenedor */
-    border-radius: 4%; /* Hace que la imagen sea circular (puedes ajustar el valor según tus preferencias) */
 }
 .info {
     margin-top: 20px;
@@ -54,65 +56,39 @@
     align-items: center;
     text-align: center;
 }
-.info h1 {
-    margin: 1% 0;
-}
+
 .botones{
-    grid-column: 2fr;
-    padding: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
-@media screen and (min-width: 500px) and (max-width: 768px) {
+
+@media screen and (min-width: 500px) and (max-width: 1024px) {
     /* Estilos para tablets */
     #details{
         grid-template-columns: 1fr;
         align-items: center;
-       
+        margin: 20px 2%;
+        padding: 1% 0%;
     }
-    .botones{
-        width: 1%;
-
+    .detail{
+        grid-template-columns: 1fr 1fr;
     }
- 
 }
 
-@media screen and (max-width: 768px) {
-    .detail {
-        flex-direction: column; /* Cambia la dirección del flexbox a columna */
-        grid-template-columns: 1fr;
-        align-items: center;
-        margin: 0%;
-       
-        
-        
-    }
-    
 
-    .detail-img {
-        order: 1; /* Cambia el orden de la imagen para que esté arriba */
-        margin-bottom: 0%; /* Agrega un margen inferior a la imagen */
-        width: 212px;
-        height: 284px;
-        padding: 1%;
-        
-    }
-
-    .info-character {
-        order: 2; /* Cambia el orden de la información para que esté abajo */
-        padding: 5% 5%;
-    }
-    
-}
 @media screen and (min-width: 1024px) {
     /* Estilos para pantallas grandes, como computadoras */
     #details{
-        grid-template-columns: repeat(2,  1fr);
+        grid-template-columns: 1fr 1fr;
         align-items: center;
-        padding: 0% 20%;
-        
-        
+        margin: 20px 10%;
+        padding: 2% 0%;
     }
     .info-character{
         padding: 0% 10%;
         
+    }
+    .detail{
+        grid-template-columns: 1fr 1fr;
     }
 }

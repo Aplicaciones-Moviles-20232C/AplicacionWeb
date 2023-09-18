@@ -1,35 +1,34 @@
 export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wandWood,anio,color,checked) =>{
-    return `
-    <div class="detail ${color}">
+    return `<div class="detail">
         <div class="info-image">
           <img class="detail-img" src="${imagen}" />
         </div>
-        <div class="info-character">
+        <div class="info-character ${color}"">
             <div class="info ${color}">
                 <div class = "div-nombre">
                     <h1>${nombre}</h1>
                 </div>
                 
                 <div class = "div-escuela">
-                    <h3>Hogwarts house: ${casa}</h3>
+                    <h2>Hogwarts house: ${casa}</h2>
                 </div>
                 <div class = "div-especie">
-                    <h3>Specie: ${especie}</h3>
+                    <h2>Specie: ${especie}</h2>
                 </div>
                 <div class = "div-anio">
-                    <h3>Birthdate: ${anio}</h3>
+                    <h2>Birthdate: ${anio}</h2>
                 </div>
                 <div class = "div-isAlive">
-                    <h3>Alive: ${isAlive}</h3>
+                    <h2>Alive: ${isAlive}</h2>
                 </div>
                 <div class = "div-patronus">
-                    <h3>Patronus: ${patronus}</h3>
+                    <h2>Patronus: ${patronus}</h2>
                 </div>
                 <div class = "div-actor">
-                  <h3>Actor: ${actor}</h3>
+                  <h2>Actor: ${actor}</h2>
                 </div>
                 <div class = "div-wand">
-                  <h3>Wand wood: ${actor}</h3>
+                  <h2>Wand wood: ${actor}</h2>
                 </div>
                 
                   <div class = "botones">
@@ -39,6 +38,7 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
                     </div>
                     <button class="boton-compartir" onclick=""><img src="/src/img/compartir.svg"></button>
                   </div> 
+              </div>
               </div>
            </div>
         </div>`
