@@ -46,6 +46,9 @@ function CharacterRender (character) {
       character.id,
       character.species,
       character.actor,
+      character.alive,
+      character.patronus,
+      character.wand.wood,
       character.dateOfBirth,
       colorSeleccionado,checked
       ))
@@ -55,8 +58,6 @@ function CharacterRender (character) {
     $('.heart').each(function () {
       var fav = this;
       fav.addEventListener('click', event => {
-          var id = event.target.getAttribute("data-id");
-          console.log(character)
           UpdateFavoritos(character)
       });
   });

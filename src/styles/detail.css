@@ -3,11 +3,12 @@
 }
 
 .verde {
-    color: rgba(0, 119, 0, 0.8);
+    color: rgba(0, 53, 0, 0.8);
 }
 .amarillo{
-    color:  rgb(174, 204, 92);
+    color:  rgb(172, 174, 0);
 }
+
 #details{
     background-color: white;
     display: grid;
@@ -32,7 +33,7 @@
 
 
 
-.overlay {
+.info-character {
     background-color: rgba(192, 192, 192, 0.8); /* Fondo semi-transparente para el contenido */
     padding: 1% 4%;
     border-radius: 9%;
@@ -95,7 +96,7 @@
         
     }
 
-    .overlay {
+    .info-character {
         order: 2; /* Cambia el orden de la información para que esté abajo */
         padding: 5% 5%;
     }
@@ -104,13 +105,13 @@
 @media screen and (min-width: 1024px) {
     /* Estilos para pantallas grandes, como computadoras */
     #details{
-        grid-template-columns: repeat(3,  1fr);
+        grid-template-columns: repeat(2,  1fr);
         align-items: center;
         padding: 0% 20%;
         
         
     }
-    .overlay{
+    .info-character{
         padding: 0% 10%;
         
     }
