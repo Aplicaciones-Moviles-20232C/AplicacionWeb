@@ -86,11 +86,10 @@
   
     .header {
       justify-content: end;
-      background-color: #2A623D;
       height: 60px;
     }
     .nav-link {
-      color: #C0C0C0;
+      color: rgb(84, 84, 84);
       text-decoration: none;
     }
     .logo {
@@ -120,7 +119,7 @@
     .nav-menu-link:hover,
     .nav-menu-link_active {
       background: none;
-      color: rgb(0, 255, 98);
+      color: #FFD700;
     }
   
     .nav-toggle {

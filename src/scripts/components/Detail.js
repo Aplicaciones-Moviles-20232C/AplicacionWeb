@@ -1,34 +1,45 @@
-export const Detail = (nombre,imagen,escuela,id,especie,actor,anio, color) =>{
-    return `<article class="contenedor-detail">
-    <div class="detail ${color}">
-        <img class="detail-img" src="${imagen}" />
-        <div class="overlay ">
+export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wandWood,anio,color,checked) =>{
+    return `<div class="detail">
+        <div class="info-image">
+          <img class="detail-img" src="${imagen}" />
+        </div>
+        <div class="info-character ${color}"">
             <div class="info ${color}">
                 <div class = "div-nombre">
-                    <h1>Nombre: ${nombre}</h1>
+                    <h1>${nombre}</h1>
                 </div>
-                <div class = "div-actor">
-                <h1>Actor:${actor}</h1>
-              </div>
-                <div class = "div-escuela ">
-                    <h1>Casa:${escuela}</h1
+                
+                <div class = "div-escuela">
+                    <h2>Hogwarts house: ${casa}</h2>
                 </div>
                 <div class = "div-especie">
-                    <h1>Especie:${especie}</h1>
-                    <div class = "div-anio">
-                    <h1>Fecha de nacimiento:${anio}</h1>
-                  </div>
-                  <div class"botones">
-                    <a href="favorito.html">
-                  <button class="boton-fav"><img src="/src/img/favorito.svg"> </button>
-                  </a>
-                  <a href="compartir.html?id=${id}"> 
-                  <button class="boton-compartir" ><img src="/src/img/compartir.svg"></button>
-                 </a> 
+                    <h2>Specie: ${especie}</h2>
+                </div>
+                <div class = "div-anio">
+                    <h2>Birthdate: ${anio}</h2>
+                </div>
+                <div class = "div-isAlive">
+                    <h2>Alive: ${isAlive}</h2>
+                </div>
+                <div class = "div-patronus">
+                    <h2>Patronus: ${patronus}</h2>
+                </div>
+                <div class = "div-actor">
+                  <h2>Actor: ${actor}</h2>
+                </div>
+                <div class = "div-wand">
+                  <h2>Wand wood: ${actor}</h2>
+                </div>
+                
+                  <div class = "botones">
+                    <div>
+                      <input id="${id}-fav" class="heart" type="checkbox" ${checked}/>
+                      <label id="heart-icon" for="${id}-fav">❤</label>
+                    </div>
+                    <button class="boton-compartir" onclick=""><img src="/src/img/compartir.svg"></button>
                   </div> 
-            </div>
+              </div>
+              </div>
            </div>
-        </div>
-         </div>
-    </article>`
+        </div>`
 }

@@ -30,17 +30,17 @@ export const Navbar = (esIndex)=> {
     <ul class="nav-menu">
       <li class="nav-menu-item">
       <h2>
-        <a href="../../src/views/index.html" class="nav-menu-link nav-link">Personajes</a>
+        <a href="../../src/views/index.html" class="nav-menu-link nav-link">WikiPotter</a>
      </h2> 
         </li>
       <li class="nav-menu-item">
       <h2>
-        <a href="#" class="nav-menu-link nav-link">Favoritos</a>
+        <a href="../../src/views/favoritos.html" class="nav-menu-link nav-link">Favoritos</a>
         </h2>
       </li>
       <li class="nav-menu-item">
       <h2>
-        <a href="#" class="nav-menu-link nav-link">Historial</a>
+        <a href="../../src/views/historial.html" class="nav-menu-link nav-link">Historial</a>
         </h2>
       </li>
       <li class="nav-menu-item">

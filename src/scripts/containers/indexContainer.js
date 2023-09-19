@@ -25,12 +25,29 @@ function RenderizarCasa(casa){
 function CasasRender(json){
   $("#contenedor-cartas").html("")
   localStorage.setItem("busqueda","[]")
+  localStorage.setItem("pagina",1)
+
   localStorage.setItem("personajes",JSON.stringify(json.filter((personaje) => personaje.image)))
+  RenderResult()
+}
+
+function ActualizarPagina (isNext){
+  let pagina = Number(localStorage.getItem("pagina"))
+  isNext ? pagina = pagina + 1 : pagina = pagina - 1 
+  localStorage.setItem("pagina",pagina)
+  console.log("pagina "+pagina)
+  $('html,body').scrollTop(0);
   RenderResult()
 }
 
 function PaginacionRender (){
   $("#paginacion").append(Paginacion())
+  $("#prev-pag").click(function (e) { 
+    ActualizarPagina(false)
+  });
+  $("#next-pag").click(function (e) { 
+    ActualizarPagina(true)
+  });
 }
 
 export const IndexRender = () => {
@@ -68,12 +85,19 @@ export const IndexRender = () => {
     RenderResult()
   });
 
+
   //Por defecto renderizo Gryffindor
   RenderizarCasa("Gryffindor")
   GetSpells(RenderSpells)
 };
 
 const RenderResult = () =>{
+  let paginaActual = localStorage.getItem("pagina")
+  let itemsPorPagina = 6
+  const startIndex = (paginaActual - 1) * itemsPorPagina;
+  const endIndex = startIndex + itemsPorPagina;
+
+
   let busqueda = JSON.parse(localStorage.getItem("busqueda"))
   let personajes = JSON.parse(localStorage.getItem("personajes"))
   let orden = localStorage.getItem("orden")
@@ -84,6 +108,8 @@ const RenderResult = () =>{
   $("#contenedor-cartas").html("")
 
   ordenarPersonajes(jsonARenderizar,orden)
+
+  jsonARenderizar = jsonARenderizar.slice(startIndex, endIndex);
 
   jsonARenderizar.forEach((personaje) => {
     $("#contenedor-cartas").append(Card(
