@@ -2,8 +2,11 @@ export const Compartir = (nombre,imagen,escuela,id,especie,actor,anio) =>{
     return `<article class="contenedor-compartir">
     <div class="compartir">
     <form id="formulario" method="post">
-        <div class="ormulario">
+        
             <div class="info">
+            <label for="label-nombre"><h2>Mail:</h2></label>
+            <input type="text" id="nom-imp" name="miTexto" value="">
+            
                 <div class = "div-nombre">
                 <label for="label-nombre"><h2>Nombre:</h2></label>
                     <input type="text" id="nom-imp" name="miTexto" value= ${nombre}>
@@ -29,7 +32,7 @@ export const Compartir = (nombre,imagen,escuela,id,especie,actor,anio) =>{
             </div>
             
            </div>
-           <input type="submit" value="Enviar">
+           <input type="submit" value="Enviar " onclick="validador()">
            <input type="submit" value="Cancelar">
            </form>
         </div>

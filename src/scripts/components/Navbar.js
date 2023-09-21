@@ -45,7 +45,7 @@ export const Navbar = (esIndex)=> {
       </li>
       <li class="nav-menu-item">
       <h2>
-        <a href="#" class="nav-menu-link nav-link">Mas informacion</a>
+        <a href="../../src/views/information.html" class="nav-menu-link nav-link">Mas informacion</a>
         </h2>
       </li>
       ${casas}

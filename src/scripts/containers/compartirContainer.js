@@ -4,12 +4,11 @@ import { hpCharacters } from "./jsonHP.js";
 import { GetCharacters, GetCharacterById } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 
-
 export const CompartirRender = () => {
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
   EfectoNavbar();
-  
+
   
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
