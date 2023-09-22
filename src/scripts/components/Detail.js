@@ -30,6 +30,7 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
                 <div class = "div-wand">
                   <h2>Wand wood: ${actor}</h2>
                 </div>
+                <div id="map" style="width: 100%; height: 200px;"></div>
                 
                   <div class = "botones">
                     <div>

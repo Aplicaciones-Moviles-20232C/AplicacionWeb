@@ -11,6 +11,7 @@ export const DetailRender = () => {
 
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
+  
 
   GetCharacterById(characterId, CharacterRender)
 
@@ -37,7 +38,8 @@ function CharacterRender (character) {
   
   let existe = ExisteFavorito(character);
   let checked = existe ? "checked" : "";
-
+  const randomLat = Math.random() * (90 - (-90)) + (-90);
+  const randomLng = Math.random() * (180 - (-180)) + (-180);
   $("#details").html(
     Detail(
       character.name,
@@ -52,6 +54,15 @@ function CharacterRender (character) {
       character.dateOfBirth,
       colorSeleccionado,checked
       ))
+      const map = L.map('map').setView([randomLat, randomLng], 13); // Configura las coordenadas iniciales y el nivel de zoom
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    
+      // Añade marcadores, polígonos, líneas, etc., según tus necesidades en el mapa
+      const marker = L.marker([randomLat, randomLng]).addTo(map);
+      marker.bindPopup('Ubicación de actual ').openPopup();
 
       //Selecciono los elementos que tengan la case fav 
     //y les agrego el evento del guardado en localstorage con jQuery
