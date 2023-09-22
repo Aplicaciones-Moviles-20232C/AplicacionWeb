@@ -51,6 +51,22 @@ function CharacterRender (json) {
       character.actor,
       character.dateOfBirth,
       colorSeleccionado))
-}
+
+        // Configura el mapa aquí y agrega marcadores u otras capas si es necesario
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Capa de mapa base (puedes elegir otro proveedor de mapas)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    // Puedes agregar marcadores, líneas, polígonos, etc., según tus necesidades
+    L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('¡Hola! Este es un marcador de ejemplo.');
+
+    // Ajusta el tamaño del mapa para que se ajuste al contenedor
+    map.invalidateSize();
+
+    }
 
 

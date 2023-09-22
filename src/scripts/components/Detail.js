@@ -18,6 +18,7 @@ export const Detail = (nombre,imagen,escuela,id,especie,actor,anio, color) =>{
                     <div class = "div-anio">
                     <h1>Fecha de nacimiento:${anio}</h1>
                   </div>
+                  <div id="map" class="map"></div>
                   <div class"botones">
                     <a href="favorito.html">
                   <button class="boton-fav"><img src="/src/img/favorito.svg"> </button>

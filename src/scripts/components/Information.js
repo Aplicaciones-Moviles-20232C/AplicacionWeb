@@ -32,7 +32,7 @@ export const Information = () =>{
            </div>
            <div class="form-group">
                <label for="email">Correo Electrónico:</label>
-               <input type="email" id="email" name="email">
+               <input type="text" id="email" name="email">
                <span class="error-message" id="email-error"></span>
            </div>
            <div class="form-group">
@@ -42,6 +42,8 @@ export const Information = () =>{
            </div>
            <button type="submit">Enviar</button>
        </form>
+       </div>
+       </div>
          
     </article>`
 }

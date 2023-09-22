@@ -29,7 +29,10 @@
     justify-content: center;
     align-items: center;
 }
-
+#map {
+    width: 300px; /* Ancho deseado */
+    height: 300px; /* Altura deseada */
+}
 
 
 .overlay {
