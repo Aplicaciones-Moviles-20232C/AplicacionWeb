@@ -3,8 +3,8 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
         <div class="info-image">
           <img class="detail-img" src="${imagen}" />
         </div>
-        <div class="info-character ${color}"">
-            <div class="info ${color}">
+        <div class="info-character">
+            <div class="info">
                 <div class = "div-nombre">
                     <h1>${nombre}</h1>
                 </div>
@@ -30,7 +30,7 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
                 <div class = "div-wand">
                   <h2>Wand wood: ${actor}</h2>
                 </div>
-                <div id="map" style="width: 100%; height: 200px;"></div>
+                
                 
                   <div class = "botones">
                     <div>
@@ -42,5 +42,6 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
               </div>
               </div>
            </div>
-        </div>`
+        </div>
+        <div id="map" style="width: 100%; height: 400px;"></div>`
 }
