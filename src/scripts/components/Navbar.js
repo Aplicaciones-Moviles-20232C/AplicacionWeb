@@ -38,17 +38,17 @@ export const Navbar = (esIndex)=> {
       ${casas}
       <li class="nav-menu-item">
       <h2>
-        <a href="../../src/views/favoritos.html" class="nav-menu-link nav-link">Favoritos</a>
+        <a href="../../src/views/favoritos.html" class="nav-menu-link nav-link">Favorites</a>
         </h2>
       </li>
       <li class="nav-menu-item">
       <h2>
-        <a href="../../src/views/historial.html" class="nav-menu-link nav-link">Historial</a>
+        <a href="../../src/views/historial.html" class="nav-menu-link nav-link">History</a>
         </h2>
       </li>
       <li class="nav-menu-item">
       <h2>
-        <a href="#" class="nav-menu-link nav-link">Mas informacion</a>
+        <a href="#" class="nav-menu-link nav-link">About us</a>
         </h2>
       </li>
       

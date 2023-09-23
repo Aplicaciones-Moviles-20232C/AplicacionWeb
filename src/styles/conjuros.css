@@ -5,7 +5,24 @@
 }
 
 .spell{
+    padding: 0 1%;
     margin: 0 10%;
     background-color: rgba(255, 255, 255, 0.485);
+    background-color: rgb(49, 49, 49);
+    color: white;
     border-radius: 10px;
+    -webkit-box-shadow: 0px 2px 0px 0px rgba(255,0,0,0.87);
+-moz-box-shadow: 0px 2px 0px 0px rgba(255,0,0,0.87);
+box-shadow: 0px 2px 0px 0px rgba(255,0,0,0.87);
+}
+#conjuros h1{
+    margin: 0 10%;
+    padding: 0 1%;
+    text-decoration: underline;
+}
+.spell-title{
+    text-decoration: underline;
+}
+.spell-detail{
+
 }
