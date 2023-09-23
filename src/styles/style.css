@@ -17,3 +17,24 @@ body{
 @media screen and (min-width: 992px) {
     /* Estilos para pantallas grandes, como computadoras */
 }
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #FFD700; ;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgb(49, 49, 49);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #FFD700;
+  }
