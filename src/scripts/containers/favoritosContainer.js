@@ -1,5 +1,5 @@
 import { Navbar } from "../components/Navbar.js"
-import { EfectoNavbar } from "../effects/EfectoNavbar.js";
+import { EfectoNavbar } from "../effects/Navbar.js";
 import { Card } from "../components/Card.js";
 
 export function FavoritosRender(){

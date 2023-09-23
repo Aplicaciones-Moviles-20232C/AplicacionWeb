@@ -1,8 +1,7 @@
 import { Navbar } from "../components/Navbar.js";
 import { Detail } from "../components/Detail.js";
-import { hpCharacters } from "./jsonHP.js";
-import { GetCharacters, GetCharacterById } from "../services/apiCall.js";
-import { EfectoNavbar } from "../effects/EfectoNavbar.js";
+import { GetCharacterById } from "../services/apiCall.js";
+import { EfectoNavbar } from "../effects/Navbar.js";
 
 export const DetailRender = () => {
   let root = document.getElementById("root");

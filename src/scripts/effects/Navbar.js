@@ -12,3 +12,15 @@ export const EfectoNavbar = () => {
       }
     });
   };
+
+
+export const ActualizarNavbar = (link) => {
+  $('.nav-menu-link').each(function() {
+    if ($(this).text() === link) {
+      $(this).addClass("selected");
+    }
+    else{
+      $(this).removeClass("selected");
+    }
+  });
+};

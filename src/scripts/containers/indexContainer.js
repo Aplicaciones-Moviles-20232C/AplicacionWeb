@@ -5,7 +5,7 @@ import {
   GetCharactersByHouse,
   GetSpells,
 } from "../services/apiCall.js";
-import { EfectoNavbar } from "../effects/EfectoNavbar.js";
+import { EfectoNavbar, ActualizarNavbar } from "../effects/Navbar.js";
 import { Filtro } from "../components/Filtros.js";
 import { Paginacion } from "../components/Paginacion.js";
 import { RenderSpells } from "../render/spellsRender.js";
@@ -17,8 +17,10 @@ function ActualizacionPorCasas() {
     var nombreCasa = elemento.innerHTML;
     elemento.addEventListener("click", function () {
       RenderizarCasa(nombreCasa);
+      ActualizarNavbar(nombreCasa);
     });
   });
+  
 }
 
 function RenderizarCasa(casa) {
