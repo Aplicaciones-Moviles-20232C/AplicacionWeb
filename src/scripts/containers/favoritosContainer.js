@@ -7,8 +7,8 @@ export function FavoritosRender(){
     $("#root").html(Navbar(false))
     EfectoNavbar()
     AgregarFooter()
-    ActualizarNavbar("Favoritos")
     RenderizarFavoritos()
+    ActualizarNavbar("Favoritos")
 }
 
 function RenderizarFavoritos() {
