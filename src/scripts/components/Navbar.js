@@ -2,7 +2,7 @@ export const Navbar = (esIndex)=> {
   let casas = ""
   let botonHome = `<li class="nav-menu-item">
   <h2>
-    <a href="../../src/views/index.html" class="nav-menu-link nav-link">WikiPotter</a>
+    <a href="../../src/views/index.html" class="nav-menu-link nav-link">Inicio</a>
  </h2> 
     </li>`
   if (esIndex){
@@ -35,6 +35,7 @@ export const Navbar = (esIndex)=> {
     </button>
     <ul class="nav-menu">
       ${botonHome}
+      ${casas}
       <li class="nav-menu-item">
       <h2>
         <a href="../../src/views/favoritos.html" class="nav-menu-link nav-link">Favoritos</a>
@@ -50,7 +51,7 @@ export const Navbar = (esIndex)=> {
         <a href="#" class="nav-menu-link nav-link">Mas informacion</a>
         </h2>
       </li>
-      ${casas}
+      
     </ul>
   </nav>
 </header>`

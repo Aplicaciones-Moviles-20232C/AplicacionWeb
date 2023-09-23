@@ -1,10 +1,11 @@
 import { Navbar } from "../components/Navbar.js"
-import { EfectoNavbar } from "../effects/Navbar.js";
+import { EfectoNavbar, ActualizarNavbar } from "../effects/Navbar.js";
 import { Card } from "../components/Card.js";
 
 export function FavoritosRender(){
     $("#root").html(Navbar(false))
     EfectoNavbar()
+    ActualizarNavbar("Favoritos")
     RenderizarFavoritos()
 }
 
