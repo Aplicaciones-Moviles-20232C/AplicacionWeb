@@ -66,7 +66,7 @@ function CharacterRender (character) {
           UpdateFavoritos(character)
       });
   });
-  const map = L.map('map').setView([randomLat, randomLng], 3); // Configura las coordenadas iniciales y el nivel de zoom
+  const map = L.map('map').setView([randomLat, randomLng], 4); // Configura las coordenadas iniciales y el nivel de zoom
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: ''
       }).addTo(map);
