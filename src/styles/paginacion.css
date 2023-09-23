@@ -1,14 +1,46 @@
-#paginacion{
-    margin:  40px 20%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+#paginacion {
+  margin: 40px 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-#paginacion button{
-    height: 40px;
-    width: 30%;
-    margin: auto;
-    background-color: #FF0000;
-    border-radius: 0px;
-    border: 0;
-    color: #FFD700;
+#paginacion button {
+  height: 40px;
+  width: 30%;
+  margin: auto;
+  background-color: #ff0000;
+  border-radius: 0px;
+  border: 0;
+  -webkit-border-radius: 50px;
+  min-width: 130px;
+  font-family: Barlow Semi Condensed;
+  height: 40px;
+  color: #ffd500;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #313131;
+  box-shadow: 0 5px #ff0000;
+}
+
+#paginacion button:hover {
+  box-shadow: 0 3px #ff0000;
+  top: 1px;
+}
+#paginacion button:active {
+  box-shadow: 0 0 #ff0000;
+  top: 5px;
+}
+
+#paginacion button:disabled {
+    background: #d4d4d4;
+    color: rgb(188, 188, 188);
+    box-shadow: 0 0 #ff0000;
+    top: 5px;
+    cursor:default;
 }

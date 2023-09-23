@@ -79,6 +79,7 @@
   }
   .selected{
     color: #ffffff;
+    font-weight: bolder;
   }
   /* MOBILE */
   @media (max-width: 1024px) {
