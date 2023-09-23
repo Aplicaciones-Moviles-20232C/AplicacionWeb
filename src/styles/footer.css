@@ -1,0 +1,13 @@
+footer{
+    display: grid;
+    width: 100%;
+    margin-top: 50px;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.742);
+    text-align: center;
+    
+}
+footer a{
+    color: #FFD700;
+    margin: auto;
+}
