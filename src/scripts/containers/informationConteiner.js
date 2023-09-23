@@ -23,20 +23,28 @@ export const InformationRender = () => {
             if (nombre === '') {
               $("#nombre-error").text('El campo Nombre no puede estar vacío.').css('color', 'red').show();
               event.preventDefault();
-          } else if (nombre.length < 3 || nombre.length > 5) {
+          } else if (nombre.length < 3 || nombre.length > 24) {
             $("#nombre-error").text('El campo Nombre debe tener entre 3 y 8 caracteres.').css('color', 'red').show();
             event.preventDefault();
-        }else {
+        
+        }else if (/[\d]/.test(nombre)) {
+        $("#nombre-error").text('El campo Nombre no puede contener números.').css('color', 'red').show();
+        event.preventDefault();
+    }else {
               $("#nombre-error").hide();
           }
   
           if (apellido === '') {
               $("#apellido-error").text('El campo Apellido no puede estar vacío.').css('color', 'red').show();
               event.preventDefault();
-          }else if (apellido.length < 3 || apellido.length > 5) {
+          }else if (apellido.length < 3 || apellido.length > 24) {
             $("#apellido-error").text('El campo Apellido debe tener entre 3 y 8 caracteres.').css('color', 'red').show();
             event.preventDefault();
+        } else if (/[\d]/.test(apellido)) {
+            $("#apellido-error").text('El campo Apellido no puede contener números.').css('color', 'red').show();
+            event.preventDefault();
         }
+        
            else {
               $("#apellido-error").hide();
           }
@@ -56,7 +64,10 @@ export const InformationRender = () => {
           if (nota === '') {
               $("#nota-error").text('El campo Nota no puede estar vacío.').css('color', 'red').show();
               event.preventDefault();
-          } else {
+            }else if (nota.length < 3 || nota.length > 24) {
+                $("#nota-error").text('El campo Nota debe tener entre 3 y 24 caracteres.').css('color', 'red').show();
+                event.preventDefault(); 
+            }else {
               $("#nota-error").hide();
           }
 

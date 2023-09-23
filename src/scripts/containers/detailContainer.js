@@ -4,6 +4,7 @@ import { hpCharacters } from "./jsonHP.js";
 import { GetCharacters, GetCharacterById } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/EfectoNavbar.js";
 
+
 export const DetailRender = () => {
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
@@ -17,8 +18,8 @@ export const DetailRender = () => {
 
   GetCharacterById(characterId, CharacterRender)
 
+  
 };
-
 
 function CharacterRender (json) {
   let character = json[0]
@@ -50,23 +51,69 @@ function CharacterRender (json) {
       character.species,
       character.actor,
       character.dateOfBirth,
-      colorSeleccionado))
+      colorSeleccionado,checked
+      ))
+      const map = L.map('map').setView([randomLat, randomLng], 13); // Configura las coordenadas iniciales y el nivel de zoom
 
-        // Configura el mapa aquí y agrega marcadores u otras capas si es necesario
-    var map = L.map('map').setView([51.505, -0.09], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    
+      // Añade marcadores, polígonos, líneas, etc., según tus necesidades en el mapa
+      const marker = L.marker([randomLat, randomLng]).addTo(map);
+      marker.bindPopup('Ubicación de actual ').openPopup();
 
-    // Capa de mapa base (puedes elegir otro proveedor de mapas)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-    }).addTo(map);
-
-    // Puedes agregar marcadores, líneas, polígonos, etc., según tus necesidades
-    L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('¡Hola! Este es un marcador de ejemplo.');
-
-    // Ajusta el tamaño del mapa para que se ajuste al contenedor
-    map.invalidateSize();
-
-    }
+      //Selecciono los elementos que tengan la case fav 
+    //y les agrego el evento del guardado en localstorage con jQuery
+    $('.heart').each(function () {
+      var fav = this;
+      fav.addEventListener('click', event => {
+          UpdateFavoritos(character)
+      });
+  });
+}
 
 
+function AgregarAlHistorial(personaje) {
+  var historial = JSON.parse(localStorage.getItem("Historial") || "[]");
+  var id = searchJsonId(historial, personaje.id)
+  if (id !== -1) {
+      historial.splice(id, 1);
+  }
+  historial.unshift(personaje);
+  localStorage.setItem("Historial", JSON.stringify(historial));
+}
+
+export const searchJsonId = (json, id) =>
+{
+    var indiceEncontrado = json.findIndex(function(item) {
+        return item.id === id;
+    });
+    console.log(indiceEncontrado);
+    return indiceEncontrado;
+}
+
+function ExisteFavorito(personaje) {
+  var favoritos = JSON.parse(localStorage.getItem("Favoritos") || "[]");
+  const index = favoritos.findIndex(p => p.id === personaje.id);
+  return ((index > -1))
+}
+
+
+function UpdateFavoritos(personaje) {
+  var listaPersonajes = JSON.parse(localStorage.getItem("Favoritos") || "[]");
+  // Buscar el índice del personaje en la lista por su ID
+  const index = listaPersonajes.findIndex(p => p.id === personaje.id);
+
+  if (index !== -1) {
+    // Si el personaje ya existe, eliminarlo de la lista
+    listaPersonajes.splice(index, 1);
+    localStorage.setItem("Favoritos",JSON.stringify(listaPersonajes))
+    return "Personaje eliminado.";
+  } else {
+    // Si el personaje no existe en la lista, agregarlo
+    listaPersonajes.push(personaje);
+    localStorage.setItem("Favoritos",JSON.stringify(listaPersonajes))
+    return "Personaje agregado.";
+  }
+}
