@@ -1,11 +1,12 @@
 import { Navbar } from "../components/Navbar.js"
 import { Card } from "../components/Card.js"
-import { EfectoNavbar } from "../effects/Navbar.js";
+import { EfectoNavbar,ActualizarNavbar } from "../effects/Navbar.js";
 
 export function HistorialRender(){
     $("#root").html(Navbar(false))
     EfectoNavbar()
     RenderizarHistorial()
+    ActualizarNavbar("Historial")
 }
 
 const RenderizarHistorial = ()=>{

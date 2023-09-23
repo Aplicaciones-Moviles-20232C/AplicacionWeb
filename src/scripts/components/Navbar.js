@@ -2,7 +2,7 @@ export const Navbar = (esIndex)=> {
   let casas = ""
   let botonHome = `<li class="nav-menu-item">
   <h2>
-    <a href="../../src/views/index.html" class="nav-menu-link nav-link">WikiPotter</a>
+    <a href="../../src/views/index.html" class="nav-menu-link nav-link">Inicio</a>
  </h2> 
     </li>`
   if (esIndex){
@@ -35,22 +35,23 @@ export const Navbar = (esIndex)=> {
     </button>
     <ul class="nav-menu">
       ${botonHome}
-      <li class="nav-menu-item">
-      <h2>
-        <a href="../../src/views/favoritos.html" class="nav-menu-link nav-link">Favoritos</a>
-        </h2>
-      </li>
-      <li class="nav-menu-item">
-      <h2>
-        <a href="../../src/views/historial.html" class="nav-menu-link nav-link">Historial</a>
-        </h2>
-      </li>
-      <li class="nav-menu-item">
-      <h2>
-        <a href="#" class="nav-menu-link nav-link">Mas informacion</a>
-        </h2>
-      </li>
       ${casas}
+      <li class="nav-menu-item">
+      <h2>
+        <a href="../../src/views/favoritos.html" class="nav-menu-link nav-link">Favorites</a>
+        </h2>
+      </li>
+      <li class="nav-menu-item">
+      <h2>
+        <a href="../../src/views/historial.html" class="nav-menu-link nav-link">History</a>
+        </h2>
+      </li>
+      <li class="nav-menu-item">
+      <h2>
+        <a href="#" class="nav-menu-link nav-link">About us</a>
+        </h2>
+      </li>
+      
     </ul>
   </nav>
 </header>`

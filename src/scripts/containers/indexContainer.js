@@ -83,11 +83,11 @@ export const IndexRender = () => {
   $("#orderButton").click(function () {
     if ($(this).hasClass("asc")) {
       $(this).removeClass("asc").addClass("desc");
-      $(this).html("<h3>Ordenar por nombre: Descendente</h3>");
+      $(this).html("<h3>Sort: Descending</h3>");
       localStorage.setItem("orden", "desc");
     } else {
       $(this).removeClass("desc").addClass("asc");
-      $(this).html("<h3>Ordenar por nombre: Ascendente</h3>");
+      $(this).html("<h3>Sort: Ascending</h3>");
       localStorage.setItem("orden", "asc");
     }
     RenderResult();
