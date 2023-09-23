@@ -2,12 +2,13 @@ import { Navbar } from "../components/Navbar.js";
 import { Detail } from "../components/Detail.js";
 import { GetCharacterById } from "../services/apiCall.js";
 import { EfectoNavbar } from "../effects/Navbar.js";
+import { AgregarFooter } from "./footerContainer.js";
 
 export const DetailRender = () => {
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
   EfectoNavbar();
-
+  AgregarFooter()
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
   

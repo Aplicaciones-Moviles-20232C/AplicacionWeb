@@ -10,6 +10,7 @@ import { Filtro } from "../components/Filtros.js";
 import { Paginacion } from "../components/Paginacion.js";
 import { RenderSpells } from "../render/spellsRender.js";
 import { debounce } from "../effects/debounce.js";
+import { AgregarFooter } from "./footerContainer.js";
 
 function ActualizacionPorCasas() {
   var elementosLista = document.querySelectorAll(".actualizar-casa");
@@ -61,6 +62,7 @@ function PaginacionRender() {
 export const IndexRender = () => {
   $("#root").html(Navbar(true));
   EfectoNavbar();
+  AgregarFooter()
   ActualizacionPorCasas();
   PaginacionRender();
   localStorage.setItem("personajes", "[]");

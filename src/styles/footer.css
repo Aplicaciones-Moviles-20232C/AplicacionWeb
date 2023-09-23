@@ -1,0 +1,11 @@
+footer{
+    display: grid;
+    margin-top: 40px;
+    width: 100%;
+    height: 60px;
+    background-color: red;
+    text-align: center;
+}
+footer a{
+    margin: auto;
+}
