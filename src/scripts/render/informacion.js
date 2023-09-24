@@ -102,13 +102,12 @@ export const RenderizarMasInformacion = () => {
 function Contactarse(name, lastName, email, note) {
   var correoAsunto = `Consulta ${name} ${lastName}`;
   var correoMensaje = `Hola, soy ${name} ${lastName} y mi consulta es la siguiente:
-    
-    ${note}
+  ${note}
+  Mi email de contacto es: ${email}`;
 
-    Mi email de contacto es: ${email}
-    `;
   var mailtoLink = `mailto:rilago@protonmail.com?Subject=${correoAsunto}
     &body=${encodeURIComponent(correoMensaje)}`;
 
   window.location.href = mailtoLink;
+  window.location.href = '../../src/views/index.html'
 }
