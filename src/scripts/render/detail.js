@@ -39,6 +39,23 @@ export function RenderizarDetalle(character) {
   }).addTo(map);
   const marker = L.marker([randomLat, randomLng]).addTo(map); //Marcador del mapa
   marker.bindPopup("Ubicación actual").openPopup();
+
+
+  
+  $("#compartir").on("click", function() {
+    // Muestra los botones adicionales
+    $("#compartir-whatsapp").show();
+    $("#compartir-email").show();
+  });
+  
+  // Agrega eventos de clic para WhatsApp y correo electrónico
+  $("#compartir-whatsapp").on("click", function() {
+    compartirPorWhatsApp(character);
+  });
+  
+  $("#compartir-email").on("click", function() {
+    compartirPorEmail(character);
+  });
 }
 
 //Esta funcion agrega el personaje al historial
@@ -85,4 +102,38 @@ export function UpdateFavoritos(personaje) {
     localStorage.setItem("Favoritos", JSON.stringify(listaPersonajes));
     return "Personaje agregado.";
   }
+}
+
+
+function compartirPorWhatsApp(character) {
+  // Construye el mensaje para WhatsApp
+  var mensajeWhatsApp = "Look at this Harry Potter character!\n" +
+                        "Name: " + character.name + "\n" +
+                        "House: " + character.house + "\n" +
+                        "Species: " + character.species + "\n" +
+                        "Actor: " + character.actor + "\n" +
+                        "Link: " + "http://127.0.0.1:5500/src/views/detail.html?id=" + character.id;
+
+  // URL de WhatsApp con el mensaje
+  var whatsappURL = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensajeWhatsApp);
+
+  // Abre una ventana emergente para compartir en WhatsApp
+  window.open(whatsappURL, "_blank");
+}
+
+function compartirPorEmail(character) {
+  // Construye el mensaje para correo electrónico
+  var correoAsunto = "Look at this Harry Potter character!";
+  var correoMensaje = "Name: " + character.name + "\n" +
+  "House: " + character.house + "\n" +
+  "Species: " + character.species + "\n" +
+  "Actor: " + character.actor + "\n" +
+  "Link: " + "http://127.0.0.1:5500/src/views/detail.html?id=" + character.id;
+
+  // URL de correo electrónico con el asunto y mensaje
+  var mailtoLink = "mailto:?subject=" + encodeURIComponent(correoAsunto) +
+                   "&body=" + encodeURIComponent(correoMensaje);
+
+  // Abre el cliente de correo electrónico
+  window.location.href = mailtoLink;
 }

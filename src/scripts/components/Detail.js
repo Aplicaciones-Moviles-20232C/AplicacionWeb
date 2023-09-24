@@ -44,7 +44,15 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
                       <input id="${id}-fav" class="heart" type="checkbox" ${checked}/>
                       <label id="heart-icon" for="${id}-fav">❤</label>
                     </div>
-                    <button class="boton-compartir" onclick=""><img src="/src/img/compartir.svg"></button>
+                    <button id="compartir">
+                    <span class="material-symbols-outlined" type="checkbox">share</span>
+                    </button>
+                    <button id="compartir-whatsapp" style="display: none;">
+                    <img src="/src/img/whatsapp.png" alt="WhatsApp" width="30" height="30">
+                    </button>
+                    <button id="compartir-email" style="display: none;">
+                    <span class="material-symbols-outlined">mail</span>
+                    </button>
                   </div> 
               </div>
               </div>
