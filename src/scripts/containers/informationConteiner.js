@@ -70,8 +70,16 @@ export const InformationRender = () => {
             }else {
               $("#nota-error").hide();
           }
+          if ($("#nombre-error").is(":hidden") &&
+          $("#apellido-error").is(":hidden") &&
+          $("#email-error").is(":hidden") &&
+          $("#nota-error").is(":hidden")) {
+            event.preventDefault(); // Evita que el formulario se envíe
+        window.alert("The form was submitted successfully.");
+      }
 
         });
+       
     });
   }
   
