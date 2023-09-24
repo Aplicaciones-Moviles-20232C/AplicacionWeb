@@ -1,19 +1,10 @@
-import { Navbar } from "../components/Navbar.js"
-import { EfectoNavbar, ActualizarNavbar } from "../effects/Navbar.js";
-import { Card } from "../components/Card.js";
-import { AgregarFooter } from "./footerContainer.js";
+import { ActualizarNavbar } from "../effects/Navbar.js";
+import { RenderizarFooter } from "../render/footer.js";
+import { RenderizarFavoritos } from "../render/favoritos.js";
+import { RenderizarNavbar } from "../render/navbar.js";
 
 export function FavoritosRender(){
-    $("#root").html(Navbar(false))
-    EfectoNavbar()
-    AgregarFooter()
+    RenderizarNavbar()
+    RenderizarFooter()
     RenderizarFavoritos()
-    ActualizarNavbar("Favoritos")
-}
-
-function RenderizarFavoritos() {
-    let personajes = JSON.parse(localStorage.getItem("Favoritos"))
-    personajes.forEach(personaje => {
-        $("#contenedor-cartas").append(Card(personaje.name,personaje.image,personaje.house,personaje.id))
-    });
 }

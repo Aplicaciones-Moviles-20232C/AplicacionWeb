@@ -7,6 +7,14 @@ body{
     position: relative;
     min-height: 100vh;
 }
+#titulo{
+  padding: 50px 10% 0px 10%;
+  
+}
+#titulo h1{
+  font-size: 2rem;
+  text-decoration:underline;
+}
 
 
 /* Estilos para celular */
@@ -14,10 +22,18 @@ body{
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     /* Estilos para tablets */
+    
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1024px) {
     /* Estilos para pantallas grandes, como computadoras */
+    #titulo{
+      visibility: hidden;
+      padding: 0;
+    }
+    #titulo h1{
+      font-size: 0;
+    }
 }
 
 

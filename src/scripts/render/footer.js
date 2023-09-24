@@ -1,5 +1,6 @@
 import { FooterContent } from "../components/Footer.js"
 
-export const AgregarFooter=()=>{
+//Renderiza el footer
+export const RenderizarFooter=()=>{
     $("footer").html(FooterContent())
 }
