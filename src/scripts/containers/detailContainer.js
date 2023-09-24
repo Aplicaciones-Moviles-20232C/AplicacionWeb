@@ -134,11 +134,12 @@ function UpdateFavoritos(personaje) {
 
 function compartirContenido(character) {
   // Construye el mensaje a compartir en WhatsApp
-  var mensajeWhatsApp = "¡Mira este personaje de Harry Potter!\n" +
-                        "Nombre: " + character.name + "\n" +
-                        "Casa: " + character.house + "\n" +
-                        "Especie: " + character.species + "\n" +
-                        "Actor: " + character.actor;
+  var mensajeWhatsApp = "Look at this Harry Potter character!\n" +
+                        "Name: " + character.name + "\n" +
+                        "House: " + character.house + "\n" +
+                        "Species: " + character.species + "\n" +
+                        "Actor: " + character.actor+ "\n"+
+                        "Link: "+ "http://127.0.0.1:5500/src/views/detail.html?id="+character.id;
 
   // URL de WhatsApp con el mensaje
   var whatsappURL = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensajeWhatsApp);
