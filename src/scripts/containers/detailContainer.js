@@ -12,11 +12,3 @@ export const DetailRender = () => {
   GetCharacterById(characterId, RenderizarDetalle)
 
 };
-
-
-
-
-
-
-
-
