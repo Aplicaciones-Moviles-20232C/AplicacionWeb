@@ -1,6 +1,7 @@
 import { Information } from "../components/Information.js";
-
+import { ActualizarNavbar } from "../effects/Navbar.js";
 export const RenderizarMasInformacion = () => {
+  ActualizarNavbar("About us")
   $("#information").html(Information());
   $(document).ready(function () {
     $("#formulario").submit(function (event) {
