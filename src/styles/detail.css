@@ -53,6 +53,10 @@
 
   cursor: pointer;
 }
+.compartir-email{
+  border: 0;
+  background-color: transparent;
+}
 
 @media screen and (min-width: 500px) and (max-width: 1024px) {
   /* Estilos para tablets */
