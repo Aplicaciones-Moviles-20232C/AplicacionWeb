@@ -38,7 +38,7 @@ export function RenderizarDetalle(character) {
     attribution: "",
   }).addTo(map);
   const marker = L.marker([randomLat, randomLng]).addTo(map); //Marcador del mapa
-  marker.bindPopup("Ubicación actual").openPopup();
+  marker.bindPopup("Current location").openPopup();
 
 
   
