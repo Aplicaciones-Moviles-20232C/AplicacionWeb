@@ -1,5 +1,5 @@
 #paginacion {
-  margin: 40px 20%;
+  margin: 40px 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -38,9 +38,8 @@
 }
 
 #paginacion button:disabled {
-    background: #d4d4d4;
-    color: rgb(188, 188, 188);
-    box-shadow: 0 0 #ff0000;
-    top: 5px;
+    color: rgb(255, 248, 182);
     cursor:default;
+    background: rgb(170, 170, 170);
+    box-shadow: 0 5px #ff8585;
 }

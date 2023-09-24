@@ -1,22 +1,11 @@
 import { Navbar } from "../components/Navbar.js"
-import { Card } from "../components/Card.js"
 import { EfectoNavbar,ActualizarNavbar } from "../effects/Navbar.js";
-import { AgregarFooter } from "./footerContainer.js";
+import { RenderizarFooter } from "../render/footer.js";
+import { RenderizarHistorial } from "../render/historial.js";
+import { RenderizarNavbar } from "../render/navbar.js";
 
 export function HistorialRender(){
-    $("#root").html(Navbar(false))
-    EfectoNavbar()
-    AgregarFooter()
+    RenderizarNavbar()
+    RenderizarFooter()
     RenderizarHistorial()
-    ActualizarNavbar("Historial")
-}
-
-const RenderizarHistorial = ()=>{
-    var personajes = JSON.parse(localStorage.getItem("Historial"))
-    let i = 0
-    personajes.forEach(personaje => {
-        if (i === 6) return; // Salir del bucle cuando i alcanza 5
-        $("#contenedor-cartas").append(Card(personaje.name, personaje.image, personaje.house, personaje.id));
-        i = i + 1;
-    });
 }

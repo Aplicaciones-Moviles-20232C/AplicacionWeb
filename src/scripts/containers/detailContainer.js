@@ -1,10 +1,10 @@
-import { Navbar } from "../components/Navbar.js";
-import { Detail } from "../components/Detail.js";
 import { GetCharacterById } from "../services/apiCall.js";
-import { EfectoNavbar } from "../effects/Navbar.js";
-import { AgregarFooter } from "./footerContainer.js";
+import { RenderizarNavbar } from "../render/navbar.js";
+import { RenderizarFooter } from "../render/footer.js";
+import { RenderizarDetalle } from "../render/detail.js";
 
 export const DetailRender = () => {
+// Detalle
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
   EfectoNavbar();
@@ -178,4 +178,12 @@ function compartirPorEmail(character) {
 
 
 
+
+// MAIN
+  RenderizarNavbar(false)
+  RenderizarFooter()
+  var urlParams = new URLSearchParams(window.location.search);
+  var characterId = urlParams.get('id');
+  GetCharacterById(characterId, RenderizarDetalle)
+};
 
