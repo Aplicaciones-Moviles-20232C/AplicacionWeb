@@ -42,12 +42,6 @@ export function RenderizarDetalle(character) {
 
 
   
-  $("#compartir").on("click", function() {
-    // Muestra los botones adicionales
-    $("#compartir-whatsapp").show();
-    $("#compartir-email").show();
-  });
-  
   // Agrega eventos de clic para WhatsApp y correo electrónico
   $("#compartir-whatsapp").on("click", function() {
     compartirPorWhatsApp(character);

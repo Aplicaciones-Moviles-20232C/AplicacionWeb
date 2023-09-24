@@ -2,12 +2,16 @@ body,html{
     position: relative;
     min-height: 100vh;
 }
+body{
+    background-image: url('../img/favback.png');
+}
 footer {
     position: absolute;
 }
 #contenedor-cartas{
     padding-top: 50px;
     padding-bottom: 50px;
+    background-color: transparent;
 }
 
 @media screen and (min-width: 1200px) {

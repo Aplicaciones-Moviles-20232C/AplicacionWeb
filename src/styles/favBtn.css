@@ -4,7 +4,6 @@
 }
 
 .heart {
-    color: #aab8c2;
     cursor: pointer;
     
     align-self: center;
@@ -12,9 +11,11 @@
 }
 
 #heart-icon{
-    font-size: 1.7em;
+    font-size: 40px;
 }
-
+#heart-icon:hover{
+    cursor: pointer;
+}
 
 
 .heart::selection {
@@ -27,12 +28,12 @@
     background: transparent;
 }
 
+
 .heart:checked+label {
     color: rgb(255, 0, 0);
     will-change: font-size;
     animation: heart 0.2s cubic-bezier(.97, .99, .1, 1.1);
 }
-
 
 @keyframes heart {
     0%,
