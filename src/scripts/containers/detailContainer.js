@@ -8,7 +8,8 @@ export const DetailRender = () => {
   let root = document.getElementById("root");
   root.innerHTML += Navbar();
   EfectoNavbar();
-  AgregarFooter()
+  AgregarFooter();
+  
   var urlParams = new URLSearchParams(window.location.search);
   var characterId = urlParams.get('id');
   
@@ -21,6 +22,8 @@ export const DetailRender = () => {
 
 function CharacterRender (character) {
   AgregarAlHistorial(character)
+ 
+  
   let colorSeleccionado = ''
 
   switch (character.house) {
@@ -55,6 +58,7 @@ function CharacterRender (character) {
       character.dateOfBirth,
       colorSeleccionado,checked
       ))
+      
 
       
 
@@ -74,6 +78,11 @@ function CharacterRender (character) {
       // Añade marcadores, polígonos, líneas, etc., según tus necesidades en el mapa
       const marker = L.marker([randomLat, randomLng]).addTo(map);
       marker.bindPopup('Ubicación actual').openPopup();
+      $("#compartir").on("click", function() {
+        compartirContenido(character);
+        console.log("Fui")
+      });
+
 }
 
 
@@ -120,3 +129,22 @@ function UpdateFavoritos(personaje) {
     return "Personaje agregado.";
   }
 }
+
+
+
+function compartirContenido(character) {
+  // Construye el mensaje a compartir en WhatsApp
+  var mensajeWhatsApp = "¡Mira este personaje de Harry Potter!\n" +
+                        "Nombre: " + character.name + "\n" +
+                        "Casa: " + character.house + "\n" +
+                        "Especie: " + character.species + "\n" +
+                        "Actor: " + character.actor;
+
+  // URL de WhatsApp con el mensaje
+  var whatsappURL = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensajeWhatsApp);
+
+  // Abre una ventana emergente para compartir en WhatsApp
+  window.open(whatsappURL, "_blank");
+}
+
+

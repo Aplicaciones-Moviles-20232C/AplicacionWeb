@@ -46,6 +46,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+#compartir {
+  background: transparent;
+  color: rgb(201, 204, 0);
+  border: none;
+
+  cursor: pointer;
+}
 
 @media screen and (min-width: 500px) and (max-width: 1024px) {
   /* Estilos para tablets */
@@ -59,6 +66,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 @media screen and (min-width: 1024px) {
   /* Estilos para pantallas grandes, como computadoras */
