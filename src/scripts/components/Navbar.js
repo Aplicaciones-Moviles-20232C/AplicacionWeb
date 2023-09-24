@@ -2,7 +2,7 @@ export const Navbar = (esIndex)=> {
   let casas = ""
   let botonHome = `<li class="nav-menu-item">
   <h2>
-    <a href="../../src/views/index.html" class="nav-menu-link nav-link">Inicio</a>
+    <a href="../../src/views/index.html" class="nav-menu-link nav-link">Home</a>
  </h2> 
     </li>`
   if (esIndex){
