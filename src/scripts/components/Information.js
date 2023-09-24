@@ -3,26 +3,35 @@ export const Information = () =>{
     <div class="inf">
    
             <div class="titulo">
-            <h1> Mas Informacion </h1>
+            <h1> More information </h1>
             </div>
             
             <div class="contenedor-Rowling">
             <p class="texto">
-                La creadora de la famosa serie de libros de Harry Potter es J.K. Rowling, cuyo nombre real es Joanne Rowling. Nació el 31 de julio de 1965 en Yate, Gloucestershire, Inglaterra. Su historia es fascinante y llena de desafíos antes de convertirse en una de las autoras más exitosas del mundo.
-    
-                Rowling tenía una pasión por la escritura desde joven, y la idea de Harry Potter le llegó durante un viaje en tren en 1990, mientras se dirigía a Londres. Comenzó a trabajar en la historia y, en 1997, publicó su primer libro, "Harry Potter y la piedra filosofal" (conocido como "Harry Potter and the Sorcerer's Stone" en los Estados Unidos). Inicialmente, el libro fue rechazado por varias editoriales antes de ser aceptado por Bloomsbury en el Reino Unido.
-    
-                La serie de Harry Potter se convirtió en un fenómeno literario global, y cada uno de los siete libros fue un éxito de ventas y se tradujo a numerosos idiomas. La historia sigue las aventuras de un joven mago, Harry Potter, mientras asiste a la escuela de magia y hechicería de Hogwarts y lucha contra el mago oscuro Lord Voldemort.
-    
-                El éxito de los libros llevó a la creación de una exitosa serie de películas y a la expansión del universo de Harry Potter a través de parques temáticos, productos relacionados y otras obras relacionadas.
-    
-                J.K. Rowling es admirada por su creatividad y habilidad para crear un mundo mágico lleno de personajes inolvidables. También es conocida por su filantropía y su activismo en temas sociales. Sin embargo, también ha sido objeto de controversia en algunos momentos debido a sus opiniones y comentarios en las redes sociales.
-            </p>
+            The creator of the famous Harry Potter book series is J.K. Rowling, whose real name is Joanne Rowling. He was born on July 31, 1965 in Yate,
+            
+            Gloucestershire, England. Her story is fascinating and full of challenges before becoming one of the most successful authors in the world.
+            
+            Rowling had a passion for writing from a young age, and the idea for Harry Potter came to her during a train journey in 1990, 
+            
+            while en route to London. He began working on the story and, in 1997, published his first book, "Harry Potter and the Sorcerer's Stone" 
+            
+            (known as "Harry Potter and the Sorcerer's Stone" in the United States). The book was initially rejected by several publishers before being accepted by Bloomsbury in the United Kingdom.
+            
+            The Harry Potter series became a global literary phenomenon, with each of the seven books being a bestseller and translated into numerous languages. 
+            
+            The story follows the adventures of a young wizard, Harry Potter, as he attends Hogwarts School of Witchcraft and Wizardry and battles the dark wizard Lord Voldemort. 
+            
+            The success of the books led to the creation of a successful film series and the expansion of the Harry Potter universe through theme parks, 
+            
+            related products, and other related works. J.K. Rowling is admired for her creativity and ability to create a magical world full of unforgettable characters. 
+            
+            She is also known for her philanthropy and activism on social issues. However, he has also been the subject of controversy at times due to his opinions and comments on social media.</p>
              </div>
             
            </div>
            <div class="subtitulo">
-           <h2>Para mas informacion completa con tus datos para comunicarte con nosotros</h2>
+           <h2>For more information complete with your data and contact us</h2>
            </div>
            <div class ="contenedor">
            
@@ -30,22 +39,22 @@ export const Information = () =>{
            
            <form action="#" method="POST" id="formulario">
            <div class="form-group">
-               <label for="nombre">Nombre:</label>
+               <label for="nombre">Name:</label>
                <input type="text" id="nombre" name="nombre">
                <span class="error-message" id="nombre-error"></span>
            </div>
            <div class="form-group">
-               <label for="apellido">Apellido:</label>
+               <label for="apellido">Last Name:</label>
                <input type="text" id="apellido" name="apellido">
                <span class="error-message" id="apellido-error"></span>
            </div>
            <div class="form-group">
-               <label for="email">Correo Electrónico:</label>
+               <label for="email">Email:</label>
                <input type="text" id="email" name="email">
                <span class="error-message" id="email-error"></span>
            </div>
            <div class="form-group">
-               <label for="nota">Nota:</label>
+               <label for="nota">Note:</label>
                <input type="text" id="nota" name="nota">
                <span class="error-message" id="nota-error"></span>
            </div>
