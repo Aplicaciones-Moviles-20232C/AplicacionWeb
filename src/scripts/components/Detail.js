@@ -40,6 +40,8 @@ export const Detail = (nombre,imagen,casa,id,especie,actor,isAlive,patronus,wand
                     <button id="compartir">
                     <span class="material-symbols-outlined" type="checkbox">share</span>
                     </button>
+                    <button id="compartir-whatsapp" style="display: none;">WhatsApp</button>
+                    <button id="compartir-email" style="display: none;">Correo Electrónico</button>
                   </div> 
               </div>
               </div>

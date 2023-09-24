@@ -78,9 +78,20 @@ function CharacterRender (character) {
       // Añade marcadores, polígonos, líneas, etc., según tus necesidades en el mapa
       const marker = L.marker([randomLat, randomLng]).addTo(map);
       marker.bindPopup('Ubicación actual').openPopup();
+      
       $("#compartir").on("click", function() {
-        compartirContenido(character);
-        console.log("Fui")
+        // Muestra los botones adicionales
+        $("#compartir-whatsapp").show();
+        $("#compartir-email").show();
+      });
+      
+      // Agrega eventos de clic para WhatsApp y correo electrónico
+      $("#compartir-whatsapp").on("click", function() {
+        compartirPorWhatsApp(character);
+      });
+      
+      $("#compartir-email").on("click", function() {
+        compartirPorEmail(character);
       });
 
 }
@@ -129,17 +140,14 @@ function UpdateFavoritos(personaje) {
     return "Personaje agregado.";
   }
 }
-
-
-
-function compartirContenido(character) {
-  // Construye el mensaje a compartir en WhatsApp
+function compartirPorWhatsApp(character) {
+  // Construye el mensaje para WhatsApp
   var mensajeWhatsApp = "Look at this Harry Potter character!\n" +
                         "Name: " + character.name + "\n" +
                         "House: " + character.house + "\n" +
                         "Species: " + character.species + "\n" +
-                        "Actor: " + character.actor+ "\n"+
-                        "Link: "+ "http://127.0.0.1:5500/src/views/detail.html?id="+character.id;
+                        "Actor: " + character.actor + "\n" +
+                        "Link: " + "http://127.0.0.1:5500/src/views/detail.html?id=" + character.id;
 
   // URL de WhatsApp con el mensaje
   var whatsappURL = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensajeWhatsApp);
@@ -147,5 +155,27 @@ function compartirContenido(character) {
   // Abre una ventana emergente para compartir en WhatsApp
   window.open(whatsappURL, "_blank");
 }
+
+function compartirPorEmail(character) {
+  // Construye el mensaje para correo electrónico
+  var correoAsunto = "Look at this Harry Potter character!";
+  var correoMensaje = "Name: " + character.name + "\n" +
+  "House: " + character.house + "\n" +
+  "Species: " + character.species + "\n" +
+  "Actor: " + character.actor + "\n" +
+  "Link: " + "http://127.0.0.1:5500/src/views/detail.html?id=" + character.id;
+
+  // URL de correo electrónico con el asunto y mensaje
+  var mailtoLink = "mailto:?subject=" + encodeURIComponent(correoAsunto) +
+                   "&body=" + encodeURIComponent(correoMensaje);
+
+  // Abre el cliente de correo electrónico
+  window.location.href = mailtoLink;
+}
+
+
+
+
+
 
 
